@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>Coco</title>
+        <item>
+            <title>1.1.0</title>
+            <pubDate>Sun, 17 May 2026 18:27:41 +0000</pubDate>
+            <link>https://github.com/butterflydream-ai/coco/releases</link>
+            <sparkle:version>10</sparkle:version>
+            <sparkle:shortVersionString>1.1.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <enclosure url="https://butterflydream-ai.github.io/coco-dist/Coco-1.1.0-macos.zip" length="2387175" type="application/octet-stream" sparkle:edSignature="oy27quDKzsQNxeYJRk5AoTRY+X7tnovRB87kVxgLwf3kzcU/6ggwQ6h4WpWHRtDEDo/EJ7gC5da/Bfru4qAnDg=="/>
+        </item>
+    </channel>
+</rss>
