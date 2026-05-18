@@ -44,6 +44,9 @@
   .shadow-print{box-shadow:0 1px 2px rgba(20,30,24,.06),0 30px 60px -28px rgba(20,30,24,.42)}
   .prose p{margin-top:1rem;color:#5c6b60;font-size:16px;line-height:1.75}
   .prose p:first-child{margin-top:0}
+  .rise{opacity:0;transform:translateY(14px);animation:rise .6s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.rise{opacity:1;transform:none;animation:none}}
 </style>
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
@@ -135,18 +138,27 @@ tailwind.config={theme:{extend:{
   <section class="border-t border-line py-24">
     <div class="max-w-xl"><p class="rule text-[12px] font-medium uppercase tracking-[.2em] text-ink/45">Deep dives</p>
     <h2 class="mt-5 font-display text-[clamp(1.9rem,3.6vw,2.7rem)] font-semibold tracking-[-.02em]">A closer look at the parts people use most.</h2></div>
-    <div class="mt-10 max-w-2xl border-t border-line">
-      <a href="/features/clipboard-history/" class="group flex items-center justify-between gap-4 border-b border-line py-5 transition-colors hover:bg-card/40">
-        <span class="font-display text-[20px] font-semibold tracking-[-.01em] text-ink">Clipboard history</span>
-        <span class="text-pond/60 transition-transform group-hover:translate-x-1">→</span></a>
+    <div class="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <a href="/features/clipboard-history/" class="rise group block rounded-2xl bg-card p-6 shadow-print ring-1 ring-ink/10 transition will-change-transform hover:-translate-y-0.5 hover:ring-ink/20" style="animation-delay:.04s">
+        <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-pond/10 text-pond"><i data-lucide="clipboard" class="h-[18px] w-[18px]"></i></span>
+        <h3 class="mt-5 font-display text-[20px] font-semibold tracking-[-.01em] text-ink">Clipboard history</h3>
+        <p class="mt-2 text-[14.5px] leading-relaxed text-sub">Searchable history and favorites — paste straight back where you were.</p>
+        <span class="mt-5 inline-flex items-center gap-1.5 text-[13.5px] font-medium text-pond">Read more<span class="transition-transform group-hover:translate-x-1">→</span></span>
+      </a>
 
-      <a href="/features/phonetic-search/" class="group flex items-center justify-between gap-4 border-b border-line py-5 transition-colors hover:bg-card/40">
-        <span class="font-display text-[20px] font-semibold tracking-[-.01em] text-ink">Phonetic app search</span>
-        <span class="text-pond/60 transition-transform group-hover:translate-x-1">→</span></a>
+      <a href="/features/phonetic-search/" class="rise group block rounded-2xl bg-card p-6 shadow-print ring-1 ring-ink/10 transition will-change-transform hover:-translate-y-0.5 hover:ring-ink/20" style="animation-delay:.10s">
+        <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-pond/10 text-pond"><i data-lucide="search" class="h-[18px] w-[18px]"></i></span>
+        <h3 class="mt-5 font-display text-[20px] font-semibold tracking-[-.01em] text-ink">Phonetic app search</h3>
+        <p class="mt-2 text-[14.5px] leading-relaxed text-sub">Match apps by pinyin, romaji or Hangul initials. Type the way you think.</p>
+        <span class="mt-5 inline-flex items-center gap-1.5 text-[13.5px] font-medium text-pond">Read more<span class="transition-transform group-hover:translate-x-1">→</span></span>
+      </a>
 
-      <a href="/features/calculator-conversion/" class="group flex items-center justify-between gap-4 border-b border-line py-5 transition-colors hover:bg-card/40">
-        <span class="font-display text-[20px] font-semibold tracking-[-.01em] text-ink">Calculator &amp; currency</span>
-        <span class="text-pond/60 transition-transform group-hover:translate-x-1">→</span></a>
+      <a href="/features/calculator-conversion/" class="rise group block rounded-2xl bg-card p-6 shadow-print ring-1 ring-ink/10 transition will-change-transform hover:-translate-y-0.5 hover:ring-ink/20" style="animation-delay:.16s">
+        <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-pond/10 text-pond"><i data-lucide="hash" class="h-[18px] w-[18px]"></i></span>
+        <h3 class="mt-5 font-display text-[20px] font-semibold tracking-[-.01em] text-ink">Calculator &amp; currency</h3>
+        <p class="mt-2 text-[14.5px] leading-relaxed text-sub">Arithmetic, units and live currency — answered on the same line.</p>
+        <span class="mt-5 inline-flex items-center gap-1.5 text-[13.5px] font-medium text-pond">Read more<span class="transition-transform group-hover:translate-x-1">→</span></span>
+      </a>
     </div>
   </section>
   <section id="faq" class="scroll-mt-20 border-t border-line py-24">
