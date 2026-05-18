@@ -36,3 +36,8 @@
 - Download (DMG): https://coco.butterflydream.ai/Coco-macos.dmg
 - Download (zip): https://coco.butterflydream.ai/Coco-macos.zip
 - Source/portal: https://github.com/butterflydream-ai/coco-app
+
+## Feature pages
+- Clipboard history: https://coco.butterflydream.ai/features/clipboard-history/
+- Phonetic app search: https://coco.butterflydream.ai/features/phonetic-search/
+- Calculator & currency: https://coco.butterflydream.ai/features/calculator-conversion/
