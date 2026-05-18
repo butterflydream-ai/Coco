@@ -1,0 +1,52 @@
+name: Release on tag
+
+# The private source repo (butterflydream-ai/Coco-core) builds + signs the
+# app, commits the artifacts here, and pushes a matching vX.Y.Z tag. This
+# workflow turns that tag into a public GitHub Release using THIS repo's
+# own GITHUB_TOKEN — no cross-repo PAT. The DMG/zip already live at the
+# repo root at the tagged commit; we just attach them.
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Existing tag to (re)publish, e.g. v1.4.0"
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout tagged commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.tag || github.ref_name }}
+
+      - name: Resolve tag
+        id: meta
+        run: echo "tag=${{ github.event.inputs.tag || github.ref_name }}" >> "$GITHUB_OUTPUT"
+
+      - name: Publish / refresh GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.meta.outputs.tag }}
+          name: ${{ steps.meta.outputs.tag }}
+          prerelease: false
+          make_latest: true
+          draft: false
+          fail_on_unmatched_files: true
+          files: |
+            Coco-*-macos.dmg
+            Coco-*-macos.zip
+            appcast.xml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
