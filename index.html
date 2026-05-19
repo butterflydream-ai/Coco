@@ -31,7 +31,7 @@
 <meta name="twitter:description" content="Coco is a fast, native macOS launcher. One hotkey for apps, clipboard history, quick math, unit &amp; currency conversion, emoji, and plugins. ~2 MB, Swift + AppKit, free, with silent auto-update. macOS 14+ on Apple Silicon.">
 <meta name="twitter:image" content="https://coco.butterflydream.ai/shot-launcher.jpg">
 <meta name="twitter:site" content="@yan_ai_labs">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "Coco", "applicationCategory": "UtilitiesApplication", "operatingSystem": "macOS 14 or later, Apple Silicon", "description": "Coco is a fast, native macOS launcher. One hotkey for apps, clipboard history, quick math, unit & currency conversion, emoji, and plugins. ~2 MB, Swift + AppKit, free, with silent auto-update. macOS 14+ on Apple Silicon.", "url": "https://coco.butterflydream.ai/", "downloadUrl": "https://coco.butterflydream.ai/Coco-macos.dmg", "softwareVersion": "1.3.0", "fileSize": "2MB", "screenshot": "https://coco.butterflydream.ai/shot-launcher.jpg", "inLanguage": "en", "author": {"@type": "Person", "name": "YAN", "url": "https://x.com/yan_ai_labs"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}, {"@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "Is Coco free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Coco is free, and it keeps itself up to date."}}, {"@type": "Question", "name": "What do I need to run it?", "acceptedAnswer": {"@type": "Answer", "text": "macOS 14 (Sonoma) or later, on Apple Silicon. The download is about 2 MB."}}, {"@type": "Question", "name": "How do I install it?", "acceptedAnswer": {"@type": "Answer", "text": "Download the DMG, drag Coco into Applications, then right-click Coco and choose Open the first time so macOS lets it through. Press ⌥Space to summon it."}}, {"@type": "Question", "name": "Does it update itself?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Coco checks quietly in the background and installs new versions for you, from a signed update feed."}}, {"@type": "Question", "name": "Which languages are supported?", "acceptedAnswer": {"@type": "Answer", "text": "English, Simplified Chinese, Japanese and Korean, following your system, including pinyin, romaji and Hangul-initial search."}}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "Coco", "applicationCategory": "UtilitiesApplication", "operatingSystem": "macOS 14 or later, Apple Silicon", "description": "Coco is a fast, native macOS launcher. One hotkey for apps, clipboard history, quick math, unit & currency conversion, emoji, and plugins. ~2 MB, Swift + AppKit, free, with silent auto-update. macOS 14+ on Apple Silicon.", "url": "https://coco.butterflydream.ai/", "downloadUrl": "https://coco.butterflydream.ai/Coco-macos.dmg", "softwareVersion": "1.3.0", "fileSize": "2MB", "screenshot": "https://coco.butterflydream.ai/shot-launcher.jpg", "inLanguage": "en", "author": {"@type": "Person", "name": "YAN", "url": "https://x.com/yan_ai_labs"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}, {"@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "Can it add different currencies in one line?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Type one line like $100 + ¥800 + €20 and Coco sums it at live rates, shown across the currencies you watch, each with its trend."}}, {"@type": "Question", "name": "Does the calculator just give one answer?", "acceptedAnswer": {"@type": "Answer", "text": "No. It resolves as you type and keeps a running tape; the last answer continues the next line, like a desk calculator."}}, {"@type": "Question", "name": "Can it find an app if I don't type the exact name?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Fuzzy search that also understands pinyin, romaji and Hangul initials, so you type the way you think."}}, {"@type": "Question", "name": "Does it remember what I copied?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. A searchable clipboard history with favorites. Press Space to preview, then paste back where you were."}}, {"@type": "Question", "name": "What else lives in the same box?", "acceptedAnswer": {"@type": "Answer", "text": "Unit conversion, emoji by name, a quick web search, and your own shell aliases — one hotkey, nothing to launch."}}]}]}</script>
 <style>
   html,body{background:#f1ede3}
   body{opacity:0;transition:opacity .3s ease} body.ready{opacity:1}
@@ -129,25 +129,32 @@ tailwind.config={theme:{extend:{
     <div class="mt-20 border-t border-line pt-16">
     <div class="max-w-xl"><p class="rule text-[12px] font-medium uppercase tracking-[.2em] text-ink/45">Deep dives</p>
     <h2 class="mt-5 font-display text-[clamp(1.9rem,3.6vw,2.7rem)] font-semibold tracking-[-.02em]">A closer look at the parts people use most.</h2></div>
-    <div class="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      <a href="/features/clipboard-history/" class="rise group block rounded-2xl bg-card p-6 shadow-print ring-1 ring-ink/10 transition will-change-transform hover:-translate-y-0.5 hover:ring-ink/20" style="animation-delay:.04s">
+    <div class="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <a href="/features/calculator/" class="rise group block rounded-2xl bg-card p-6 shadow-print ring-1 ring-ink/10 transition will-change-transform hover:-translate-y-0.5 hover:ring-ink/20" style="animation-delay:.04s">
+        <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-pond/10 text-pond"><i data-lucide="hash" class="h-[18px] w-[18px]"></i></span>
+        <h3 class="mt-5 font-display text-[20px] font-semibold tracking-[-.01em] text-ink">Calculator</h3>
+        <p class="mt-2 text-[14.5px] leading-relaxed text-sub">Answers as you type, on a running tape — percentages, functions, units.</p>
+        <span class="mt-5 inline-flex items-center gap-1.5 text-[13.5px] font-medium text-pond">Read more<span class="transition-transform group-hover:translate-x-1">→</span></span>
+      </a>
+
+      <a href="/features/currency/" class="rise group block rounded-2xl bg-card p-6 shadow-print ring-1 ring-ink/10 transition will-change-transform hover:-translate-y-0.5 hover:ring-ink/20" style="animation-delay:.10s">
+        <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-pond/10 text-pond"><i data-lucide="banknote" class="h-[18px] w-[18px]"></i></span>
+        <h3 class="mt-5 font-display text-[20px] font-semibold tracking-[-.01em] text-ink">Currency</h3>
+        <p class="mt-2 text-[14.5px] leading-relaxed text-sub">Add money across currencies in one line, at live rates with the trend.</p>
+        <span class="mt-5 inline-flex items-center gap-1.5 text-[13.5px] font-medium text-pond">Read more<span class="transition-transform group-hover:translate-x-1">→</span></span>
+      </a>
+
+      <a href="/features/clipboard-history/" class="rise group block rounded-2xl bg-card p-6 shadow-print ring-1 ring-ink/10 transition will-change-transform hover:-translate-y-0.5 hover:ring-ink/20" style="animation-delay:.16s">
         <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-pond/10 text-pond"><i data-lucide="clipboard" class="h-[18px] w-[18px]"></i></span>
         <h3 class="mt-5 font-display text-[20px] font-semibold tracking-[-.01em] text-ink">Clipboard history</h3>
         <p class="mt-2 text-[14.5px] leading-relaxed text-sub">Searchable history and favorites — paste straight back where you were.</p>
         <span class="mt-5 inline-flex items-center gap-1.5 text-[13.5px] font-medium text-pond">Read more<span class="transition-transform group-hover:translate-x-1">→</span></span>
       </a>
 
-      <a href="/features/phonetic-search/" class="rise group block rounded-2xl bg-card p-6 shadow-print ring-1 ring-ink/10 transition will-change-transform hover:-translate-y-0.5 hover:ring-ink/20" style="animation-delay:.10s">
+      <a href="/features/phonetic-search/" class="rise group block rounded-2xl bg-card p-6 shadow-print ring-1 ring-ink/10 transition will-change-transform hover:-translate-y-0.5 hover:ring-ink/20" style="animation-delay:.22s">
         <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-pond/10 text-pond"><i data-lucide="search" class="h-[18px] w-[18px]"></i></span>
         <h3 class="mt-5 font-display text-[20px] font-semibold tracking-[-.01em] text-ink">Phonetic app search</h3>
         <p class="mt-2 text-[14.5px] leading-relaxed text-sub">Match apps by pinyin, romaji or Hangul initials. Type the way you think.</p>
-        <span class="mt-5 inline-flex items-center gap-1.5 text-[13.5px] font-medium text-pond">Read more<span class="transition-transform group-hover:translate-x-1">→</span></span>
-      </a>
-
-      <a href="/features/calculator-conversion/" class="rise group block rounded-2xl bg-card p-6 shadow-print ring-1 ring-ink/10 transition will-change-transform hover:-translate-y-0.5 hover:ring-ink/20" style="animation-delay:.16s">
-        <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-pond/10 text-pond"><i data-lucide="hash" class="h-[18px] w-[18px]"></i></span>
-        <h3 class="mt-5 font-display text-[20px] font-semibold tracking-[-.01em] text-ink">Calculator &amp; currency</h3>
-        <p class="mt-2 text-[14.5px] leading-relaxed text-sub">Arithmetic with a running tape, units, and money summed across currencies — same line, live rates.</p>
         <span class="mt-5 inline-flex items-center gap-1.5 text-[13.5px] font-medium text-pond">Read more<span class="transition-transform group-hover:translate-x-1">→</span></span>
       </a>
     </div>
@@ -168,33 +175,33 @@ tailwind.config={theme:{extend:{
       <div class="border-t border-line">
       <details class="border-b border-line py-1" open>
         <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-4">
-          <span class="font-display text-[19px] font-semibold tracking-[-.01em] text-ink">Is Coco free?</span>
+          <span class="font-display text-[19px] font-semibold tracking-[-.01em] text-ink">Can it add different currencies in one line?</span>
           <span class="chev shrink-0 text-pond/60 transition-transform duration-200"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 3v10M3 8h10"/></svg></span>
-        </summary><p class="max-w-2xl pb-5 text-[15px] leading-relaxed text-sub">Yes. Coco is free, and it keeps itself up to date.</p></details>
+        </summary><p class="max-w-2xl pb-5 text-[15px] leading-relaxed text-sub">Yes — type one line like <code>$100 + ¥800 + €20</code> and Coco sums it at live rates, shown across the currencies you watch, each with its trend. <a href="/features/currency/" class="font-medium text-pond hover:text-pondhi">More →</a></p></details>
 
       <details class="border-b border-line py-1">
         <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-4">
-          <span class="font-display text-[19px] font-semibold tracking-[-.01em] text-ink">What do I need to run it?</span>
+          <span class="font-display text-[19px] font-semibold tracking-[-.01em] text-ink">Does the calculator just give one answer?</span>
           <span class="chev shrink-0 text-pond/60 transition-transform duration-200"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 3v10M3 8h10"/></svg></span>
-        </summary><p class="max-w-2xl pb-5 text-[15px] leading-relaxed text-sub">macOS 14 (Sonoma) or later, on Apple Silicon. The download is about 2 MB.</p></details>
+        </summary><p class="max-w-2xl pb-5 text-[15px] leading-relaxed text-sub">No. It resolves as you type and keeps a running tape; the last answer continues the next line, like a desk calculator. <a href="/features/calculator/" class="font-medium text-pond hover:text-pondhi">More →</a></p></details>
 
       <details class="border-b border-line py-1">
         <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-4">
-          <span class="font-display text-[19px] font-semibold tracking-[-.01em] text-ink">How do I install it?</span>
+          <span class="font-display text-[19px] font-semibold tracking-[-.01em] text-ink">Can it find an app if I don&#x27;t type the exact name?</span>
           <span class="chev shrink-0 text-pond/60 transition-transform duration-200"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 3v10M3 8h10"/></svg></span>
-        </summary><p class="max-w-2xl pb-5 text-[15px] leading-relaxed text-sub">Download the DMG, drag Coco into Applications, then right-click Coco and choose Open the first time so macOS lets it through. Press ⌥Space to summon it.</p></details>
+        </summary><p class="max-w-2xl pb-5 text-[15px] leading-relaxed text-sub">Yes — fuzzy search that also understands pinyin, romaji and Hangul initials, so you type the way you think. <a href="/features/phonetic-search/" class="font-medium text-pond hover:text-pondhi">More →</a></p></details>
 
       <details class="border-b border-line py-1">
         <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-4">
-          <span class="font-display text-[19px] font-semibold tracking-[-.01em] text-ink">Does it update itself?</span>
+          <span class="font-display text-[19px] font-semibold tracking-[-.01em] text-ink">Does it remember what I copied?</span>
           <span class="chev shrink-0 text-pond/60 transition-transform duration-200"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 3v10M3 8h10"/></svg></span>
-        </summary><p class="max-w-2xl pb-5 text-[15px] leading-relaxed text-sub">Yes. Coco checks quietly in the background and installs new versions for you, from a signed update feed.</p></details>
+        </summary><p class="max-w-2xl pb-5 text-[15px] leading-relaxed text-sub">Yes — a searchable clipboard history with favorites. Press Space to preview, then paste back where you were. <a href="/features/clipboard-history/" class="font-medium text-pond hover:text-pondhi">More →</a></p></details>
 
       <details class="border-b border-line py-1">
         <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-4">
-          <span class="font-display text-[19px] font-semibold tracking-[-.01em] text-ink">Which languages are supported?</span>
+          <span class="font-display text-[19px] font-semibold tracking-[-.01em] text-ink">What else lives in the same box?</span>
           <span class="chev shrink-0 text-pond/60 transition-transform duration-200"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 3v10M3 8h10"/></svg></span>
-        </summary><p class="max-w-2xl pb-5 text-[15px] leading-relaxed text-sub">English, Simplified Chinese, Japanese and Korean, following your system, including pinyin, romaji and Hangul-initial search.</p></details>
+        </summary><p class="max-w-2xl pb-5 text-[15px] leading-relaxed text-sub">Unit conversion, emoji by name, a quick web search, and your own shell aliases — one hotkey, nothing to launch.</p></details>
       </div>
     </div>
   </section>

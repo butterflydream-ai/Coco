@@ -31,7 +31,7 @@
 <meta name="twitter:description" content="Coco は高速・ネイティブな macOS ランチャー。ホットキー一つでアプリ起動、クリップボード履歴、計算、単位・為替換算、絵文字、プラグイン。約 2 MB、Swift + AppKit、無料、サイレント自動更新。macOS 14+ / Apple Silicon。">
 <meta name="twitter:image" content="https://coco.butterflydream.ai/shot-launcher.jpg">
 <meta name="twitter:site" content="@yan_ai_labs">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "Coco", "applicationCategory": "UtilitiesApplication", "operatingSystem": "macOS 14 or later, Apple Silicon", "description": "Coco は高速・ネイティブな macOS ランチャー。ホットキー一つでアプリ起動、クリップボード履歴、計算、単位・為替換算、絵文字、プラグイン。約 2 MB、Swift + AppKit、無料、サイレント自動更新。macOS 14+ / Apple Silicon。", "url": "https://coco.butterflydream.ai/", "downloadUrl": "https://coco.butterflydream.ai/Coco-macos.dmg", "softwareVersion": "1.3.0", "fileSize": "2MB", "screenshot": "https://coco.butterflydream.ai/shot-launcher.jpg", "inLanguage": "ja", "author": {"@type": "Person", "name": "YAN", "url": "https://x.com/yan_ai_labs"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}, {"@type": "FAQPage", "inLanguage": "ja", "mainEntity": [{"@type": "Question", "name": "Coco は無料ですか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。Coco は無料で、自動で最新に保たれます。"}}, {"@type": "Question", "name": "動作環境は？", "acceptedAnswer": {"@type": "Answer", "text": "macOS 14（Sonoma）以降、Apple Silicon。ダウンロードは約 2 MB。"}}, {"@type": "Question", "name": "インストール方法は？", "acceptedAnswer": {"@type": "Answer", "text": "DMG をダウンロードし Coco をアプリケーションへ。初回は右クリック→開く で macOS に許可させます。⌥Space で呼び出し。"}}, {"@type": "Question", "name": "自動更新しますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。バックグラウンドで静かに確認し、署名付きフィードから新版を入れます。"}}, {"@type": "Question", "name": "対応言語は？", "acceptedAnswer": {"@type": "Answer", "text": "英・簡体中・日・韓。システムに追従し、ピンイン/ローマ字/ハングル初声検索に対応。"}}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "SoftwareApplication", "name": "Coco", "applicationCategory": "UtilitiesApplication", "operatingSystem": "macOS 14 or later, Apple Silicon", "description": "Coco は高速・ネイティブな macOS ランチャー。ホットキー一つでアプリ起動、クリップボード履歴、計算、単位・為替換算、絵文字、プラグイン。約 2 MB、Swift + AppKit、無料、サイレント自動更新。macOS 14+ / Apple Silicon。", "url": "https://coco.butterflydream.ai/", "downloadUrl": "https://coco.butterflydream.ai/Coco-macos.dmg", "softwareVersion": "1.3.0", "fileSize": "2MB", "screenshot": "https://coco.butterflydream.ai/shot-launcher.jpg", "inLanguage": "ja", "author": {"@type": "Person", "name": "YAN", "url": "https://x.com/yan_ai_labs"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}, {"@type": "FAQPage", "inLanguage": "ja", "mainEntity": [{"@type": "Question", "name": "異なる通貨を一行で足せますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。$100 + ¥800 + €20 のように一行で打つと、Coco がライブレートで合算し、見ている各通貨に推移つきで表示します。"}}, {"@type": "Question", "name": "電卓は答えが一つだけ？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。打つそばから出て、テープに履歴が残ります。直前の答えが次の行に続く、卓上電卓と同じです。"}}, {"@type": "Question", "name": "名前を正確に打てなくてもアプリは見つかる？", "acceptedAnswer": {"@type": "Answer", "text": "はい。あいまい検索に加え、ピンイン・ローマ字・ハングル初声も。思った読みで打てます。"}}, {"@type": "Question", "name": "コピーした内容は覚えてくれる？", "acceptedAnswer": {"@type": "Answer", "text": "はい。検索できるクリップボード履歴とお気に入り。スペースでプレビューし、元の場所へ貼り戻せます。"}}, {"@type": "Question", "name": "同じ箱で他に何ができる？", "acceptedAnswer": {"@type": "Answer", "text": "単位換算、名前で絵文字、サッとウェブ検索、自分の shell エイリアス。ホットキー一つ、何も起動せずに。"}}]}]}</script>
 <style>
   html,body{background:#f1ede3}
   body{opacity:0;transition:opacity .3s ease} body.ready{opacity:1}
@@ -129,25 +129,32 @@ tailwind.config={theme:{extend:{
     <div class="mt-20 border-t border-line pt-16">
     <div class="max-w-xl"><p class="rule text-[12px] font-medium uppercase tracking-[.2em] text-ink/45">機能の詳細</p>
     <h2 class="mt-5 font-display text-[clamp(1.9rem,3.6vw,2.7rem)] font-semibold tracking-[-.02em]">よく使う部分を、もう少し詳しく。</h2></div>
-    <div class="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      <a href="/ja/features/clipboard-history/" class="rise group block rounded-2xl bg-card p-6 shadow-print ring-1 ring-ink/10 transition will-change-transform hover:-translate-y-0.5 hover:ring-ink/20" style="animation-delay:.04s">
+    <div class="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <a href="/ja/features/calculator/" class="rise group block rounded-2xl bg-card p-6 shadow-print ring-1 ring-ink/10 transition will-change-transform hover:-translate-y-0.5 hover:ring-ink/20" style="animation-delay:.04s">
+        <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-pond/10 text-pond"><i data-lucide="hash" class="h-[18px] w-[18px]"></i></span>
+        <h3 class="mt-5 font-display text-[20px] font-semibold tracking-[-.01em] text-ink">電卓</h3>
+        <p class="mt-2 text-[14.5px] leading-relaxed text-sub">打つそばから答え、テープに履歴——百分率・関数・単位も。</p>
+        <span class="mt-5 inline-flex items-center gap-1.5 text-[13.5px] font-medium text-pond">詳しく見る<span class="transition-transform group-hover:translate-x-1">→</span></span>
+      </a>
+
+      <a href="/ja/features/currency/" class="rise group block rounded-2xl bg-card p-6 shadow-print ring-1 ring-ink/10 transition will-change-transform hover:-translate-y-0.5 hover:ring-ink/20" style="animation-delay:.10s">
+        <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-pond/10 text-pond"><i data-lucide="banknote" class="h-[18px] w-[18px]"></i></span>
+        <h3 class="mt-5 font-display text-[20px] font-semibold tracking-[-.01em] text-ink">為替</h3>
+        <p class="mt-2 text-[14.5px] leading-relaxed text-sub">複数の通貨を一行で合算。ライブレートで、推移つき。</p>
+        <span class="mt-5 inline-flex items-center gap-1.5 text-[13.5px] font-medium text-pond">詳しく見る<span class="transition-transform group-hover:translate-x-1">→</span></span>
+      </a>
+
+      <a href="/ja/features/clipboard-history/" class="rise group block rounded-2xl bg-card p-6 shadow-print ring-1 ring-ink/10 transition will-change-transform hover:-translate-y-0.5 hover:ring-ink/20" style="animation-delay:.16s">
         <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-pond/10 text-pond"><i data-lucide="clipboard" class="h-[18px] w-[18px]"></i></span>
         <h3 class="mt-5 font-display text-[20px] font-semibold tracking-[-.01em] text-ink">クリップボード履歴</h3>
         <p class="mt-2 text-[14.5px] leading-relaxed text-sub">検索できる履歴とお気に入り。元のアプリへそのまま貼り戻し。</p>
         <span class="mt-5 inline-flex items-center gap-1.5 text-[13.5px] font-medium text-pond">詳しく見る<span class="transition-transform group-hover:translate-x-1">→</span></span>
       </a>
 
-      <a href="/ja/features/phonetic-search/" class="rise group block rounded-2xl bg-card p-6 shadow-print ring-1 ring-ink/10 transition will-change-transform hover:-translate-y-0.5 hover:ring-ink/20" style="animation-delay:.10s">
+      <a href="/ja/features/phonetic-search/" class="rise group block rounded-2xl bg-card p-6 shadow-print ring-1 ring-ink/10 transition will-change-transform hover:-translate-y-0.5 hover:ring-ink/20" style="animation-delay:.22s">
         <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-pond/10 text-pond"><i data-lucide="search" class="h-[18px] w-[18px]"></i></span>
         <h3 class="mt-5 font-display text-[20px] font-semibold tracking-[-.01em] text-ink">発音でアプリ検索</h3>
         <p class="mt-2 text-[14.5px] leading-relaxed text-sub">ピンイン・ローマ字・ハングル初声で一致。思った読みで。</p>
-        <span class="mt-5 inline-flex items-center gap-1.5 text-[13.5px] font-medium text-pond">詳しく見る<span class="transition-transform group-hover:translate-x-1">→</span></span>
-      </a>
-
-      <a href="/ja/features/calculator-conversion/" class="rise group block rounded-2xl bg-card p-6 shadow-print ring-1 ring-ink/10 transition will-change-transform hover:-translate-y-0.5 hover:ring-ink/20" style="animation-delay:.16s">
-        <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-pond/10 text-pond"><i data-lucide="hash" class="h-[18px] w-[18px]"></i></span>
-        <h3 class="mt-5 font-display text-[20px] font-semibold tracking-[-.01em] text-ink">電卓と為替</h3>
-        <p class="mt-2 text-[14.5px] leading-relaxed text-sub">テープ付きの四則、単位、通貨をまたいだ合算——同じ行、ライブ為替。</p>
         <span class="mt-5 inline-flex items-center gap-1.5 text-[13.5px] font-medium text-pond">詳しく見る<span class="transition-transform group-hover:translate-x-1">→</span></span>
       </a>
     </div>
@@ -168,33 +175,33 @@ tailwind.config={theme:{extend:{
       <div class="border-t border-line">
       <details class="border-b border-line py-1" open>
         <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-4">
-          <span class="font-display text-[19px] font-semibold tracking-[-.01em] text-ink">Coco は無料ですか？</span>
+          <span class="font-display text-[19px] font-semibold tracking-[-.01em] text-ink">異なる通貨を一行で足せますか？</span>
           <span class="chev shrink-0 text-pond/60 transition-transform duration-200"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 3v10M3 8h10"/></svg></span>
-        </summary><p class="max-w-2xl pb-5 text-[15px] leading-relaxed text-sub">はい。Coco は無料で、自動で最新に保たれます。</p></details>
+        </summary><p class="max-w-2xl pb-5 text-[15px] leading-relaxed text-sub">はい——<code>$100 + ¥800 + €20</code> のように一行で打つと、Coco がライブレートで合算し、見ている各通貨に推移つきで表示します。<a href="/ja/features/currency/" class="font-medium text-pond hover:text-pondhi">詳しく →</a></p></details>
 
       <details class="border-b border-line py-1">
         <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-4">
-          <span class="font-display text-[19px] font-semibold tracking-[-.01em] text-ink">動作環境は？</span>
+          <span class="font-display text-[19px] font-semibold tracking-[-.01em] text-ink">電卓は答えが一つだけ？</span>
           <span class="chev shrink-0 text-pond/60 transition-transform duration-200"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 3v10M3 8h10"/></svg></span>
-        </summary><p class="max-w-2xl pb-5 text-[15px] leading-relaxed text-sub">macOS 14（Sonoma）以降、Apple Silicon。ダウンロードは約 2 MB。</p></details>
+        </summary><p class="max-w-2xl pb-5 text-[15px] leading-relaxed text-sub">いいえ。打つそばから出て、テープに履歴が残ります。直前の答えが次の行に続く——卓上電卓と同じ。<a href="/ja/features/calculator/" class="font-medium text-pond hover:text-pondhi">詳しく →</a></p></details>
 
       <details class="border-b border-line py-1">
         <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-4">
-          <span class="font-display text-[19px] font-semibold tracking-[-.01em] text-ink">インストール方法は？</span>
+          <span class="font-display text-[19px] font-semibold tracking-[-.01em] text-ink">名前を正確に打てなくてもアプリは見つかる？</span>
           <span class="chev shrink-0 text-pond/60 transition-transform duration-200"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 3v10M3 8h10"/></svg></span>
-        </summary><p class="max-w-2xl pb-5 text-[15px] leading-relaxed text-sub">DMG をダウンロードし Coco をアプリケーションへ。初回は右クリック→開く で macOS に許可させます。⌥Space で呼び出し。</p></details>
+        </summary><p class="max-w-2xl pb-5 text-[15px] leading-relaxed text-sub">はい——あいまい検索に加え、ピンイン・ローマ字・ハングル初声も。思った読みで打てます。<a href="/ja/features/phonetic-search/" class="font-medium text-pond hover:text-pondhi">詳しく →</a></p></details>
 
       <details class="border-b border-line py-1">
         <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-4">
-          <span class="font-display text-[19px] font-semibold tracking-[-.01em] text-ink">自動更新しますか？</span>
+          <span class="font-display text-[19px] font-semibold tracking-[-.01em] text-ink">コピーした内容は覚えてくれる？</span>
           <span class="chev shrink-0 text-pond/60 transition-transform duration-200"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 3v10M3 8h10"/></svg></span>
-        </summary><p class="max-w-2xl pb-5 text-[15px] leading-relaxed text-sub">はい。バックグラウンドで静かに確認し、署名付きフィードから新版を入れます。</p></details>
+        </summary><p class="max-w-2xl pb-5 text-[15px] leading-relaxed text-sub">はい——検索できるクリップボード履歴とお気に入り。スペースでプレビューし、元の場所へ貼り戻せます。<a href="/ja/features/clipboard-history/" class="font-medium text-pond hover:text-pondhi">詳しく →</a></p></details>
 
       <details class="border-b border-line py-1">
         <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-4">
-          <span class="font-display text-[19px] font-semibold tracking-[-.01em] text-ink">対応言語は？</span>
+          <span class="font-display text-[19px] font-semibold tracking-[-.01em] text-ink">同じ箱で他に何ができる？</span>
           <span class="chev shrink-0 text-pond/60 transition-transform duration-200"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 3v10M3 8h10"/></svg></span>
-        </summary><p class="max-w-2xl pb-5 text-[15px] leading-relaxed text-sub">英・簡体中・日・韓。システムに追従し、ピンイン/ローマ字/ハングル初声検索に対応。</p></details>
+        </summary><p class="max-w-2xl pb-5 text-[15px] leading-relaxed text-sub">単位換算、名前で絵文字、サッとウェブ検索、自分の shell エイリアス——ホットキー一つ、何も起動せずに。</p></details>
       </div>
     </div>
   </section>

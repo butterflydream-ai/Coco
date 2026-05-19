@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>계산 테이프가 있는 인라인 계산기(Mac) — Coco</title>
+<meta name="description" content="식을 치면 치는 대로 답 — 진짜 계산 테이프, 백분율, 함수, 단위 변환이 다른 것과 같은 상자 안에. 모드 전환 없이, 앱 없이. 네이티브 macOS, 무료.">
+<meta name="keywords" content="mac 인라인 계산기, 테이프 있는 계산기, Spotlight 계산기 대체, 빠른 계산 mac, 단위 변환 런처, 계산 기록">
+<link rel="canonical" href="https://coco.butterflydream.ai/ko/features/calculator/">
+<link rel="alternate" hreflang="en" href="https://coco.butterflydream.ai/features/calculator/">
+<link rel="alternate" hreflang="zh-Hans" href="https://coco.butterflydream.ai/zh/features/calculator/">
+<link rel="alternate" hreflang="ja" href="https://coco.butterflydream.ai/ja/features/calculator/">
+<link rel="alternate" hreflang="ko" href="https://coco.butterflydream.ai/ko/features/calculator/">
+<link rel="alternate" hreflang="x-default" href="https://coco.butterflydream.ai/features/calculator/">
+<meta name="theme-color" content="#f1ede3">
+<meta name="color-scheme" content="light">
+<link rel="icon" type="image/png" href="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Coco">
+<meta property="og:title" content="계산 테이프가 있는 인라인 계산기(Mac) — Coco">
+<meta property="og:description" content="식을 치면 치는 대로 답 — 진짜 계산 테이프, 백분율, 함수, 단위 변환이 다른 것과 같은 상자 안에. 모드 전환 없이, 앱 없이. 네이티브 macOS, 무료.">
+<meta property="og:url" content="https://coco.butterflydream.ai/ko/features/calculator/">
+<meta property="og:image" content="https://coco.butterflydream.ai/shot-launcher.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="계산 테이프가 있는 인라인 계산기(Mac) — Coco">
+<meta name="twitter:description" content="식을 치면 치는 대로 답 — 진짜 계산 테이프, 백분율, 함수, 단위 변환이 다른 것과 같은 상자 안에. 모드 전환 없이, 앱 없이. 네이티브 macOS, 무료.">
+<meta name="twitter:image" content="https://coco.butterflydream.ai/shot-launcher.jpg">
+<meta name="twitter:site" content="@yan_ai_labs">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Coco", "item": "https://coco.butterflydream.ai/ko/"}, {"@type": "ListItem", "position": 2, "name": "기능", "item": "https://coco.butterflydream.ai/ko/#features"}, {"@type": "ListItem", "position": 3, "name": "계산기", "item": "https://coco.butterflydream.ai/ko/features/calculator/"}]}, {"@type": "FAQPage", "inLanguage": "ko", "mainEntity": [{"@type": "Question", "name": "계산기 모드로 전환하나요?", "acceptedAnswer": {"@type": "Answer", "text": "아니요. 다른 것과 같은 상자에 식을 치면 치는 대로 답이 갱신돼요."}}, {"@type": "Question", "name": "기록이 남나요?", "acceptedAnswer": {"@type": "Answer", "text": "네. 지난 답은 계산 테이프에 남아요. 마지막 결과가 다음 줄로 이어져서, + 5 만 치면 방금 이어서 계산돼요."}}, {"@type": "Question", "name": "＋ − × ÷ 말고도 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "네 — 백분율(20% of 1500), 함수(sqrt, ln, sin), 상수(pi, e), 팩토리얼, mod, 괄호까지. 결과엔 천 단위 구분이 들어가요."}}, {"@type": "Question", "name": "단위 변환도 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "네. 수량과 단위를 치면 같은 줄에서 변환값을 읽어요. 돈은 환율 페이지로."}}]}]}</script>
+<style>
+  html,body{background:#f1ede3}
+  body{opacity:0;transition:opacity .3s ease} body.ready{opacity:1}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+  ::selection{background:#2440301f}
+  details>summary::-webkit-details-marker{display:none}
+  details[open] .chev{transform:rotate(45deg)}
+  .grain{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/><feColorMatrix type='saturate' values='0'/></filter><rect width='120' height='120' filter='url(%23n)' opacity='0.5'/></svg>");background-size:160px;mix-blend-mode:multiply;opacity:.05}
+  .rule::before{content:"";display:inline-block;width:26px;height:1px;background:#1721284d;vertical-align:middle;margin-right:12px}
+  .shadow-print{box-shadow:0 1px 2px rgba(20,30,24,.06),0 30px 60px -28px rgba(20,30,24,.42)}
+  .prose p{margin-top:1rem;color:#5c6b60;font-size:16px;line-height:1.75}
+  .prose p:first-child{margin-top:0}
+</style>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={theme:{extend:{
+ colors:{paper:'#f1ede3',paper2:'#fbf9f2',card:'#ffffff',ink:'#18211c',sub:'#5c6b60',
+  line:'rgba(24,33,28,.14)',pond:'#24402f',pondhi:'#2d5038',rose:'#bd5f7d'},
+ fontFamily:{display:['Fraunces','Georgia','serif'],sans:['Inter','-apple-system','BlinkMacSystemFont','Segoe UI','sans-serif']},
+ maxWidth:{site:'70rem',prose:'46rem'}}}}
+</script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="font-sans text-[15px] leading-relaxed text-ink antialiased">
+<div class="grain pointer-events-none fixed inset-0 z-[60]"></div>
+<div class="pointer-events-none fixed inset-x-0 top-0 -z-10 h-[560px] bg-[radial-gradient(700px_360px_at_50%_-6%,rgba(189,95,125,.12),transparent_62%),radial-gradient(680px_360px_at_88%_4%,rgba(36,64,47,.10),transparent_60%)]"></div>
+<header class="sticky top-0 z-50 bg-paper/80 backdrop-blur-md">
+  <nav class="mx-auto flex h-[60px] max-w-site items-center gap-5 px-6">
+    <a href="/ko/" class="flex items-center gap-2.5 text-ink"><svg viewBox="0 0 438 438" fill="none" aria-hidden="true" class="h-[26px] w-[26px]"><circle cx="219" cy="219" r="202" stroke="currentColor" stroke-width="33"/><rect x="101.609" y="166" width="45" height="100" rx="22.5" fill="currentColor"/><rect x="188" y="166" width="45" height="100" rx="22.5" fill="currentColor"/></svg><span class="font-display text-[19px] font-semibold tracking-[-.02em]">Coco</span></a>
+    <span class="flex-1"></span>
+    <a href="/ko/#features" class="hidden text-[14px] text-ink/55 transition-colors hover:text-ink sm:block">기능</a>
+    <a href="https://github.com/butterflydream-ai/coco-app" rel="noopener" class="hidden text-[14px] text-ink/55 transition-colors hover:text-ink sm:block">GitHub</a>
+    <span class="hidden h-4 w-px bg-line sm:block"></span>
+    <div class="flex items-center text-[13px]"><a href="/features/calculator/" hreflang="en" class="px-1.5 text-ink/45 hover:text-ink transition-colors">EN</a><span class='text-ink/25'>·</span><a href="/zh/features/calculator/" hreflang="zh-Hans" class="px-1.5 text-ink/45 hover:text-ink transition-colors">中文</a><span class='text-ink/25'>·</span><a href="/ja/features/calculator/" hreflang="ja" class="px-1.5 text-ink/45 hover:text-ink transition-colors">日本語</a><span class='text-ink/25'>·</span><a href="/ko/features/calculator/" hreflang="ko" class="px-1.5 text-ink font-medium transition-colors">한국어</a></div>
+    <a href="/Coco-macos.dmg" download class="rounded-full bg-pond px-4 py-2 text-[13.5px] font-medium text-paper2 shadow-sm transition will-change-transform hover:-translate-y-px hover:bg-pondhi active:translate-y-0">다운로드</a>
+  </nav>
+</header>
+<main class="mx-auto max-w-site px-6 pb-10">
+  <nav aria-label="Breadcrumb" class="pt-10 text-[13px] text-ink/45">
+    <a href="/ko/" class="hover:text-ink">Coco</a> <span class="px-1">/</span>
+    <a href="/ko/#features" class="hover:text-ink">기능</a> <span class="px-1">/</span>
+    <span class="text-ink/70">계산기</span>
+  </nav>
+  <header class="mx-auto max-w-prose pt-12">
+    <h1 class="font-display text-[clamp(2.2rem,5vw,3.4rem)] font-semibold leading-[1.08] tracking-[-.025em] text-ink">테이프 있는 계산기, 단축키 하나 뒤에</h1>
+    <p class="mt-5 text-[18px] leading-relaxed text-sub">치는 대로 답이 나오고, 기억도 해요 — 다른 것과 같은 상자 안에서.</p>
+    <div class="mt-7"><a href="/Coco-macos.dmg" download class="inline-block rounded-full bg-pond px-6 py-3 text-[14.5px] font-medium text-paper2 shadow-print transition hover:-translate-y-0.5 hover:bg-pondhi">⬇  macOS용 다운로드</a></div>
+  </header>
+  <div class="mx-auto mt-14 max-w-4xl"><div class="rounded-2xl bg-card p-2.5 shadow-print ring-1 ring-ink/10"><img src="/shot-calc.webp" width="1600" height="1000" loading="lazy" alt="결과 테이프가 이어지는 Coco 계산기" class="w-full rounded-xl ring-1 ring-ink/10"></div></div>
+
+      <section class="prose mt-14 max-w-prose">
+        <h2 class="mb-4 font-display text-[clamp(1.5rem,3vw,2rem)] font-semibold tracking-[-.02em] text-ink">치면, 풀리는 게 보여요</h2>
+        <p>`2026-1999`는 등호에 닿기 전에 27 — 이미 말이 되는 가장 긴 부분에 대해, 치는 동안 숫자가 갱신돼요. 끝에 `=`를 붙여도 좋아요. 그냥 &ldquo;끝&rdquo;이라는 뜻이에요.</p><p>모드 전환도, 앱도, 검색 비우기도 먼저 할 필요 없어요. 앱을 실행하는 그 상자예요.</p>
+      </section>
+
+      <section class="prose mt-14 max-w-prose">
+        <h2 class="mb-4 font-display text-[clamp(1.5rem,3vw,2rem)] font-semibold tracking-[-.02em] text-ink">진짜 계산 테이프</h2>
+        <p>고개 돌리는 순간 답이 사라지지 않아요. 하나하나가 되짚어 스크롤하고 다시 쓸 수 있는 테이프에 남아요 — 한 번 쓰고 버리는 결과가 아니라.</p><p>마지막 답은 다음 줄로도 이어져요. `+ 5`를 치면 방금 자리에서 이어서 — 탁상 계산기처럼요. `ans`도 식 어디서나 돼요.</p>
+      </section>
+
+      <section class="prose mt-14 max-w-prose">
+        <h2 class="mb-4 font-display text-[clamp(1.5rem,3vw,2rem)] font-semibold tracking-[-.02em] text-ink">사칙연산만이 아니에요</h2>
+        <p>백분율은 말하는 대로 읽혀요 — `20% of 1500`, `1500 + 10%`. 그리고 `sqrt`, `ln`, `log`, `sin`, `pi`나 `e` 같은 상수, 팩토리얼, `mod`, 괄호까지. 결과엔 천 단위 구분이 들어가서 큰 수도 읽기 좋아요.</p>
+      </section>
+
+      <section class="prose mt-14 max-w-prose">
+        <h2 class="mb-4 font-display text-[clamp(1.5rem,3vw,2rem)] font-semibold tracking-[-.02em] text-ink">단위도 같은 호흡에</h2>
+        <p>수량과 단위를 치면 같은 줄에서 변환값을 읽어요 — 길이, 무게, 온도 등. 돈은 별도 페이지가 있어요: <a href="/ko/features/currency/" class="font-medium text-pond hover:text-pondhi">실시간 환율 변환 →</a></p>
+      </section>
+
+      <section class="prose mt-14 max-w-prose">
+        <h2 class="mb-4 font-display text-[clamp(1.5rem,3vw,2rem)] font-semibold tracking-[-.02em] text-ink">이미 열려 있어요</h2>
+        <p>가장 빠른 계산기는 실행하지 않는 계산기. 다른 모든 걸 부르는 그 단축키 뒤에 있어요.</p>
+      </section>
+  <section class="mx-auto mt-20 max-w-prose border-t border-line pt-12">
+    <h2 class="font-display text-[clamp(1.5rem,3vw,2rem)] font-semibold tracking-[-.02em]">자주 묻는 질문</h2>
+    <div class="mt-7 border-t border-line">
+      <details class="border-b border-line py-1" open>
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-4">
+          <span class="font-display text-[18px] font-semibold tracking-[-.01em] text-ink">계산기 모드로 전환하나요?</span>
+          <span class="chev shrink-0 text-pond/60 transition-transform duration-200"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 3v10M3 8h10"/></svg></span>
+        </summary><p class="max-w-prose pb-5 text-[15px] leading-relaxed text-sub">아니요. 다른 것과 같은 상자에 식을 치면 치는 대로 답이 갱신돼요.</p></details>
+
+      <details class="border-b border-line py-1">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-4">
+          <span class="font-display text-[18px] font-semibold tracking-[-.01em] text-ink">기록이 남나요?</span>
+          <span class="chev shrink-0 text-pond/60 transition-transform duration-200"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 3v10M3 8h10"/></svg></span>
+        </summary><p class="max-w-prose pb-5 text-[15px] leading-relaxed text-sub">네. 지난 답은 계산 테이프에 남아요. 마지막 결과가 다음 줄로 이어져서, <code>+ 5</code> 만 치면 방금 이어서 계산돼요.</p></details>
+
+      <details class="border-b border-line py-1">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-4">
+          <span class="font-display text-[18px] font-semibold tracking-[-.01em] text-ink">＋ − × ÷ 말고도 되나요?</span>
+          <span class="chev shrink-0 text-pond/60 transition-transform duration-200"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 3v10M3 8h10"/></svg></span>
+        </summary><p class="max-w-prose pb-5 text-[15px] leading-relaxed text-sub">네 — 백분율(<code>20% of 1500</code>), 함수(<code>sqrt</code>, <code>ln</code>, <code>sin</code>), 상수(<code>pi</code>, <code>e</code>), 팩토리얼, <code>mod</code>, 괄호까지. 결과엔 천 단위 구분이 들어가요.</p></details>
+
+      <details class="border-b border-line py-1">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-4">
+          <span class="font-display text-[18px] font-semibold tracking-[-.01em] text-ink">단위 변환도 되나요?</span>
+          <span class="chev shrink-0 text-pond/60 transition-transform duration-200"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 3v10M3 8h10"/></svg></span>
+        </summary><p class="max-w-prose pb-5 text-[15px] leading-relaxed text-sub">네. 수량과 단위를 치면 같은 줄에서 변환값을 읽어요. 돈은 <a href="/ko/features/currency/" class="font-medium text-pond hover:text-pondhi">환율 페이지</a>로.</p></details>
+    </div>
+  </section>
+  <section class="mx-auto mt-20 max-w-prose border-t border-line pt-10">
+    <p class="rule text-[12px] font-medium uppercase tracking-[.2em] text-ink/45">다른 기능</p>
+    <div class="mt-6 border-t border-line"><a href="/ko/features/currency/" class="group flex items-center justify-between gap-4 border-b border-line py-4 transition-colors hover:bg-card/40">
+      <span class="font-display text-[17px] font-semibold text-ink">환율과 통화 합산</span><span class="text-pond/60 transition-transform group-hover:translate-x-1">→</span></a>
+<a href="/ko/features/clipboard-history/" class="group flex items-center justify-between gap-4 border-b border-line py-4 transition-colors hover:bg-card/40">
+      <span class="font-display text-[17px] font-semibold text-ink">클립보드 기록</span><span class="text-pond/60 transition-transform group-hover:translate-x-1">→</span></a>
+<a href="/ko/features/phonetic-search/" class="group flex items-center justify-between gap-4 border-b border-line py-4 transition-colors hover:bg-card/40">
+      <span class="font-display text-[17px] font-semibold text-ink">발음으로 앱 검색</span><span class="text-pond/60 transition-transform group-hover:translate-x-1">→</span></a>
+    </div>
+    <div class="mt-10"><a href="/ko/" class="text-[15px] font-medium text-pond hover:text-pondhi">← Coco로 돌아가기</a></div>
+  </section>
+</main>
+<footer class="border-t border-line py-10">
+  <div class="mx-auto flex max-w-site flex-wrap items-center gap-x-6 gap-y-3 px-6 text-[13.5px] text-ink/45">
+    <span class="flex items-center gap-2 font-display font-semibold text-ink/70"><svg viewBox="0 0 438 438" fill="none" aria-hidden="true" class="h-[15px] w-[15px]"><circle cx="219" cy="219" r="202" stroke="currentColor" stroke-width="33"/><rect x="101.609" y="166" width="45" height="100" rx="22.5" fill="currentColor"/><rect x="188" y="166" width="45" height="100" rx="22.5" fill="currentColor"/></svg>Coco</span>
+    <span class="h-1 w-1 rounded-full bg-rose"></span>
+    <span class="flex-1"></span>
+    <a href="/Coco-macos.dmg" download class="transition-colors hover:text-ink">다운로드</a>
+    <a href="https://github.com/butterflydream-ai/coco-app" rel="noopener" class="transition-colors hover:text-ink">GitHub</a>
+    <a href="https://x.com/yan_ai_labs" rel="noopener" class="transition-colors hover:text-ink">YAN 제작</a>
+  </div>
+</footer>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>if(window.lucide)lucide.createIcons();document.body.classList.add('ready');</script>
+</body>
+</html>

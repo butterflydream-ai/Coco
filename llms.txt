@@ -16,8 +16,8 @@
 ## Capabilities
 - App launcher with fuzzy search incl. pinyin / romaji / Hangul-initial
 - Clipboard history and favorites with preview and paste-back
-- Inline calculator
-- Unit conversion and live currency conversion
+- Inline calculator with a running tape
+- Unit conversion, and add money across currencies in one line at live rates
 - Emoji search and web search
 - User-defined shell command aliases
 - JavaScript plugins via the in-app Coco Store
@@ -40,4 +40,5 @@
 ## Feature pages
 - Clipboard history: https://coco.butterflydream.ai/features/clipboard-history/
 - Phonetic app search: https://coco.butterflydream.ai/features/phonetic-search/
-- Calculator & currency: https://coco.butterflydream.ai/features/calculator-conversion/
+- Calculator (running tape, live preview, %, functions, units): https://coco.butterflydream.ai/features/calculator/
+- Currency (add money across currencies in one line, live rates, trends): https://coco.butterflydream.ai/features/currency/
