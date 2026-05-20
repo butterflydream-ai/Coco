@@ -1,6 +1,6 @@
 {
   "schema_version": "1",
-  "updated_at": "2026-05-20T04:36:41.220Z",
+  "updated_at": "2026-05-20T05:05:12.174Z",
   "plugins": [
     {
       "id": "com.coco.clipboard-stats",
@@ -9,12 +9,12 @@
       "description": "Pop a panel showing char / word / line counts of the current clipboard text.",
       "author": "Coco",
       "category": "utilities",
-      "icon_url": null,
+      "icon_url": "https://coco.butterflydream.ai/plugins/icons/com.coco.clipboard-stats.png",
       "homepage": "https://coco.butterflydream.ai/",
       "repository": "https://github.com/butterflydream-ai/Coco",
       "screenshots": null,
       "download_url": "https://coco.butterflydream.ai/plugins/zips/com.coco.clipboard-stats-0.2.0.zip",
-      "sha256": "20e3b7e36cc913adc73be76894e6ece1998ee7dd1278d6d3119e02b5bd2f396b",
+      "sha256": "7dde24dfa135650caef5fdcefdc8c38f836d1b8bca9eaa534768c8022241a9c6",
       "install_dir_name": "clipboard-stats"
     },
     {
@@ -24,12 +24,12 @@
       "description": "Truly lossless image compression for PNG and JPEG. Outputs to a sibling 'compressed/' folder, preserves filenames + format. Picks up Finder selection automatically.",
       "author": "Coco",
       "category": "utilities",
-      "icon_url": null,
+      "icon_url": "https://coco.butterflydream.ai/plugins/icons/com.coco.image-compressor.png",
       "homepage": "https://coco.butterflydream.ai/",
       "repository": "https://github.com/butterflydream-ai/Coco",
       "screenshots": null,
       "download_url": "https://coco.butterflydream.ai/plugins/zips/com.coco.image-compressor-0.7.0.zip",
-      "sha256": "5c14b567741a140d7d571f314c747efbaa09aa406f974de58d9788c62610226f",
+      "sha256": "bcae8672f67993973ba585b995efa77e4cdb889ef855671541f5e9e744332df7",
       "install_dir_name": "image-compressor"
     },
     {
@@ -39,12 +39,12 @@
       "description": "Sample any pixel on screen and copy its hex code to the clipboard.",
       "author": "Coco",
       "category": "utilities",
-      "icon_url": null,
+      "icon_url": "https://coco.butterflydream.ai/plugins/icons/com.coco.screen-color-picker.png",
       "homepage": "https://coco.butterflydream.ai/",
       "repository": "https://github.com/butterflydream-ai/Coco",
       "screenshots": null,
       "download_url": "https://coco.butterflydream.ai/plugins/zips/com.coco.screen-color-picker-0.3.0.zip",
-      "sha256": "a9394968af0b8f930fcdd3501fa9d0b3f9b3fd6549eeee64167c36bfb2d92077",
+      "sha256": "ba9db6ded5b2e4e1bfa1e7a95d8e956898906ffb4d2fe71579ea968a2575fb09",
       "install_dir_name": "screen-color-picker"
     }
   ],
