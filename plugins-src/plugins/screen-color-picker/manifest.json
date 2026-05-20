@@ -1,0 +1,24 @@
+{
+  "id": "com.coco.screen-color-picker",
+  "name": "Screen Color Picker",
+  "version": "0.3.0",
+  "description": "Sample any pixel on screen and copy its hex code to the clipboard.",
+  "author": "Coco",
+  "category": "utilities",
+  "homepage": "https://coco.butterflydream.ai/",
+  "repository": "https://github.com/butterflydream-ai/Coco",
+  "commands": [
+    {
+      "id": "pick",
+      "title": { "en": "Pick Color from Screen", "zh": "屏幕取色" },
+      "subtitle": { "en": "Magnifier loupe → click → hex on clipboard", "zh": "放大镜 → 点击屏幕 → hex 到剪贴板" },
+      "keywords": ["color", "colour", "picker", "hex", "rgb", "取色", "颜色", "屏幕颜色"]
+    },
+    {
+      "id": "capture",
+      "title": { "en": "Capture Screen → file", "zh": "截图保存为文件" },
+      "subtitle": { "en": "Snapshot the main display, pick where to save the PNG", "zh": "截取主屏幕，选择保存 PNG 的位置" },
+      "keywords": ["screenshot", "screen", "capture", "png", "截图", "屏幕截图"]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "coco-plugins",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-index.mjs plugins dist https://coco.butterflydream.ai/plugins",
+    "test": "node scripts/build-index.test.mjs"
+  }
+}

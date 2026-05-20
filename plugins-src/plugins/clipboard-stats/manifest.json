@@ -1,0 +1,18 @@
+{
+  "id": "com.coco.clipboard-stats",
+  "name": "Clipboard Stats",
+  "version": "0.2.0",
+  "description": "Pop a panel showing char / word / line counts of the current clipboard text.",
+  "author": "Coco",
+  "category": "utilities",
+  "homepage": "https://coco.butterflydream.ai/",
+  "repository": "https://github.com/butterflydream-ai/Coco",
+  "commands": [
+    {
+      "id": "show",
+      "title": { "en": "Show Clipboard Stats", "zh": "查看剪贴板统计" },
+      "subtitle": { "en": "Char / word / line counts in a panel", "zh": "面板显示字符 / 词 / 行数统计" },
+      "keywords": ["clipboard", "stats", "count", "剪贴板", "统计", "字数"]
+    }
+  ]
+}

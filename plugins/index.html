@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coco Plugins</title>
+<style>
+  body{font:15px/1.5 -apple-system,system-ui,sans-serif;margin:0;background:#0f1115;color:#e8e8ea}
+  header{padding:48px 24px;text-align:center;border-bottom:1px solid #23262d}
+  h1{margin:0 0 8px;font-size:28px}
+  header p{margin:0;color:#9aa0a6}
+  main{max-width:1040px;margin:0 auto;padding:32px 24px;display:grid;
+       grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+  .card{background:#171a21;border:1px solid #23262d;border-radius:14px;padding:18px}
+  .card h2{margin:0 0 4px;font-size:17px}
+  .meta{color:#9aa0a6;font-size:13px;margin:0 0 10px}
+  .desc{color:#c4c7cc;font-size:14px;margin:0 0 12px}
+  .cat{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.04em;
+       color:#9aa0a6;background:#23262d;border-radius:999px;padding:3px 9px}
+  footer{text-align:center;color:#6b7177;padding:32px;font-size:13px}
+  a{color:#7aa2f7}
+</style>
+</head>
+<body>
+<header>
+  <h1>Coco Plugins</h1>
+  <p>Browse the plugins available in the Coco Store.</p>
+</header>
+<main id="grid"></main>
+<footer>
+  Index: <a href="index.json">index.json</a> ·
+  <a href="https://github.com/butterflydream-ai/Coco/tree/main/plugins-src">Source &amp; contributing</a>
+</footer>
+<script>
+fetch('index.json').then(r=>r.json()).then(ix=>{
+  const g=document.getElementById('grid');
+  for(const p of ix.plugins){
+    const d=document.createElement('div');d.className='card';
+    d.innerHTML=`<h2></h2><p class="meta"></p><p class="desc"></p><span class="cat"></span>`;
+    d.querySelector('h2').textContent=p.name;
+    d.querySelector('.meta').textContent='v'+p.version+(p.author?' · '+p.author:'');
+    d.querySelector('.desc').textContent=p.description||'';
+    d.querySelector('.cat').textContent=p.category||'other';
+    g.appendChild(d);
+  }
+});
+</script>
+</body>
+</html>

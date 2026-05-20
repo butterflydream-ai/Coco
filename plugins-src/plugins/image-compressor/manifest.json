@@ -1,0 +1,18 @@
+{
+  "id": "com.coco.image-compressor",
+  "name": "Image Compressor",
+  "version": "0.7.0",
+  "description": "Truly lossless image compression for PNG and JPEG. Outputs to a sibling 'compressed/' folder, preserves filenames + format. Picks up Finder selection automatically.",
+  "author": "Coco",
+  "category": "utilities",
+  "homepage": "https://coco.butterflydream.ai/",
+  "repository": "https://github.com/butterflydream-ai/Coco",
+  "commands": [
+    {
+      "id": "compress",
+      "title": { "en": "Compress images (lossless)", "zh": "无损压缩图片" },
+      "subtitle": { "en": "PNG + JPEG · lossless via imagemin · uses Finder selection", "zh": "PNG + JPEG · imagemin 真无损 · 自动读取访达选中" },
+      "keywords": ["image", "compress", "lossless", "png", "jpeg", "imagemin", "无损", "压缩", "图片", "图像", "文件夹"]
+    }
+  ]
+}
