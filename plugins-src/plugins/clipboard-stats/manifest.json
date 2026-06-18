@@ -1,7 +1,7 @@
 {
   "id": "com.coco.clipboard-stats",
   "name": "Clipboard Stats",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Pop a panel showing char / word / line counts of the current clipboard text.",
   "author": "Coco",
   "category": "utilities",

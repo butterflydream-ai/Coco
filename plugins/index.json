@@ -1,11 +1,11 @@
 {
   "schema_version": "1",
-  "updated_at": "2026-06-18T18:45:23.652Z",
+  "updated_at": "2026-06-18T19:07:53.265Z",
   "plugins": [
     {
       "id": "com.coco.clipboard-stats",
       "name": "Clipboard Stats",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "description": "Pop a panel showing char / word / line counts of the current clipboard text.",
       "author": "Coco",
       "category": "utilities",
@@ -13,8 +13,8 @@
       "homepage": "https://coco.butterflydream.ai/",
       "repository": "https://github.com/butterflydream-ai/Coco",
       "screenshots": null,
-      "download_url": "https://coco.butterflydream.ai/plugins/zips/com.coco.clipboard-stats-0.2.0.zip",
-      "sha256": "7dde24dfa135650caef5fdcefdc8c38f836d1b8bca9eaa534768c8022241a9c6",
+      "download_url": "https://coco.butterflydream.ai/plugins/zips/com.coco.clipboard-stats-0.2.1.zip",
+      "sha256": "dedd96cc6d58b22db48d85b96154389f039b70a8edfb9565f2911d5460538896",
       "install_dir_name": "clipboard-stats"
     },
     {
@@ -50,7 +50,7 @@
     {
       "id": "com.coco.screen-color-picker",
       "name": "Screen Color Picker",
-      "version": "0.3.0",
+      "version": "0.3.1",
       "description": "Sample any pixel on screen and copy its hex code to the clipboard.",
       "author": "Coco",
       "category": "utilities",
@@ -58,8 +58,8 @@
       "homepage": "https://coco.butterflydream.ai/",
       "repository": "https://github.com/butterflydream-ai/Coco",
       "screenshots": null,
-      "download_url": "https://coco.butterflydream.ai/plugins/zips/com.coco.screen-color-picker-0.3.0.zip",
-      "sha256": "ba9db6ded5b2e4e1bfa1e7a95d8e956898906ffb4d2fe71579ea968a2575fb09",
+      "download_url": "https://coco.butterflydream.ai/plugins/zips/com.coco.screen-color-picker-0.3.1.zip",
+      "sha256": "e43a5236f157c158b183601496f04078bce7a002d8374706b769aefade065259",
       "install_dir_name": "screen-color-picker"
     }
   ],
