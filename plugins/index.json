@@ -1,6 +1,6 @@
 {
   "schema_version": "1",
-  "updated_at": "2026-05-20T05:05:12.174Z",
+  "updated_at": "2026-06-18T17:41:23.265Z",
   "plugins": [
     {
       "id": "com.coco.clipboard-stats",
@@ -16,6 +16,21 @@
       "download_url": "https://coco.butterflydream.ai/plugins/zips/com.coco.clipboard-stats-0.2.0.zip",
       "sha256": "7dde24dfa135650caef5fdcefdc8c38f836d1b8bca9eaa534768c8022241a9c6",
       "install_dir_name": "clipboard-stats"
+    },
+    {
+      "id": "com.coco.hif-to-jpg",
+      "name": "HIF to JPG",
+      "version": "0.1.0",
+      "description": "Convert Fuji HIF / HEIF / HEIC photos to JPG next to the originals. Uses Finder selection when available and never overwrites existing JPG files.",
+      "author": "Coco",
+      "category": "media",
+      "icon_url": "https://coco.butterflydream.ai/plugins/icons/com.coco.hif-to-jpg.png",
+      "homepage": "https://coco.butterflydream.ai/",
+      "repository": "https://github.com/butterflydream-ai/Coco",
+      "screenshots": null,
+      "download_url": "https://coco.butterflydream.ai/plugins/zips/com.coco.hif-to-jpg-0.1.0.zip",
+      "sha256": "3860e85419e43d884b3f6b1bb3cb2d0a7eb4eade4abc14b00e2df9e3d52ec18f",
+      "install_dir_name": "hif-to-jpg"
     },
     {
       "id": "com.coco.image-compressor",
