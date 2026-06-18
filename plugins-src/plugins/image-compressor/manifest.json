@@ -1,8 +1,8 @@
 {
   "id": "com.coco.image-compressor",
   "name": "Image Compressor",
-  "version": "0.7.0",
-  "description": "Truly lossless image compression for PNG and JPEG. Outputs to a sibling 'compressed/' folder, preserves filenames + format. Picks up Finder selection automatically.",
+  "version": "1.1.0",
+  "description": "Lossless PNG + high-quality JPEG compression, powered by sharp (Apple Silicon native). Outputs to a sibling 'compressed/' folder, preserves filenames + format. Picks up Finder selection automatically.",
   "author": "Coco",
   "category": "utilities",
   "homepage": "https://coco.butterflydream.ai/",
@@ -10,9 +10,30 @@
   "commands": [
     {
       "id": "compress",
-      "title": { "en": "Compress images (lossless)", "zh": "无损压缩图片" },
-      "subtitle": { "en": "PNG + JPEG · lossless via imagemin · uses Finder selection", "zh": "PNG + JPEG · imagemin 真无损 · 自动读取访达选中" },
-      "keywords": ["image", "compress", "lossless", "png", "jpeg", "imagemin", "无损", "压缩", "图片", "图像", "文件夹"]
+      "title": { "en": "Compress images", "zh": "压缩图片" },
+      "subtitle": { "en": "PNG lossless + JPEG · sharp (Apple Silicon native) · uses Finder selection", "zh": "PNG 无损 + JPEG 高质量 · sharp 原生 · 自动读取访达选中" },
+      "keywords": ["image", "compress", "lossless", "png", "jpeg", "sharp", "无损", "压缩", "图片", "图像", "文件夹"]
+    }
+  ],
+  "preferences": [
+    {
+      "id": "optimizationLevel",
+      "type": "select",
+      "title": "Compression effort",
+      "description": "Higher = smaller files, slower on large images. For JPEG it nudges quality (85 → 80 → 72); for PNG it raises sharp's lossless effort.",
+      "default": "2",
+      "options": [
+        { "value": "1", "label": "Fast (quality 85)" },
+        { "value": "2", "label": "Balanced (default)" },
+        { "value": "3", "label": "Best (smaller, slower)" }
+      ]
+    },
+    {
+      "id": "stripMetadata",
+      "type": "boolean",
+      "title": "Strip metadata",
+      "description": "Remove EXIF/profile data. Smaller files, no visual difference.",
+      "default": true
     }
   ]
 }

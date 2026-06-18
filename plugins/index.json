@@ -1,6 +1,6 @@
 {
   "schema_version": "1",
-  "updated_at": "2026-06-18T17:41:23.265Z",
+  "updated_at": "2026-06-18T18:45:23.652Z",
   "plugins": [
     {
       "id": "com.coco.clipboard-stats",
@@ -29,22 +29,22 @@
       "repository": "https://github.com/butterflydream-ai/Coco",
       "screenshots": null,
       "download_url": "https://coco.butterflydream.ai/plugins/zips/com.coco.hif-to-jpg-0.1.0.zip",
-      "sha256": "3860e85419e43d884b3f6b1bb3cb2d0a7eb4eade4abc14b00e2df9e3d52ec18f",
+      "sha256": "a2cc9f7f5f03d081e694891b7da16a709ef9b14cd84d2531ab91ada002e01b12",
       "install_dir_name": "hif-to-jpg"
     },
     {
       "id": "com.coco.image-compressor",
       "name": "Image Compressor",
-      "version": "0.7.0",
-      "description": "Truly lossless image compression for PNG and JPEG. Outputs to a sibling 'compressed/' folder, preserves filenames + format. Picks up Finder selection automatically.",
+      "version": "1.1.0",
+      "description": "Lossless PNG + high-quality JPEG compression, powered by sharp (Apple Silicon native). Outputs to a sibling 'compressed/' folder, preserves filenames + format. Picks up Finder selection automatically.",
       "author": "Coco",
       "category": "utilities",
       "icon_url": "https://coco.butterflydream.ai/plugins/icons/com.coco.image-compressor.png",
       "homepage": "https://coco.butterflydream.ai/",
       "repository": "https://github.com/butterflydream-ai/Coco",
       "screenshots": null,
-      "download_url": "https://coco.butterflydream.ai/plugins/zips/com.coco.image-compressor-0.7.0.zip",
-      "sha256": "bcae8672f67993973ba585b995efa77e4cdb889ef855671541f5e9e744332df7",
+      "download_url": "https://coco.butterflydream.ai/plugins/zips/com.coco.image-compressor-1.1.0.zip",
+      "sha256": "188e3f38d5e48c6f9027f2a989d737e8a9134509d56639665307befe35acd581",
       "install_dir_name": "image-compressor"
     },
     {
