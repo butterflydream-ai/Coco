@@ -1,6 +1,6 @@
 {
   "schema_version": "1",
-  "updated_at": "2026-06-18T19:07:53.265Z",
+  "updated_at": "2026-06-19T03:59:30.944Z",
   "plugins": [
     {
       "id": "com.coco.clipboard-stats",
@@ -35,7 +35,7 @@
     {
       "id": "com.coco.image-compressor",
       "name": "Image Compressor",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "description": "Lossless PNG + high-quality JPEG compression, powered by sharp (Apple Silicon native). Outputs to a sibling 'compressed/' folder, preserves filenames + format. Picks up Finder selection automatically.",
       "author": "Coco",
       "category": "utilities",
@@ -43,8 +43,8 @@
       "homepage": "https://coco.butterflydream.ai/",
       "repository": "https://github.com/butterflydream-ai/Coco",
       "screenshots": null,
-      "download_url": "https://coco.butterflydream.ai/plugins/zips/com.coco.image-compressor-1.1.0.zip",
-      "sha256": "188e3f38d5e48c6f9027f2a989d737e8a9134509d56639665307befe35acd581",
+      "download_url": "https://coco.butterflydream.ai/plugins/zips/com.coco.image-compressor-1.1.1.zip",
+      "sha256": "2baa72994c9f942ce287dcd387fdcb394bc073e46a4ccbb6f532c19369d56061",
       "install_dir_name": "image-compressor"
     },
     {

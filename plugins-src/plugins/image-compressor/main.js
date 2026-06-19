@@ -25,8 +25,8 @@
   }, null, 2) + "\n";
 
   const COMPRESS_MJS = [
-    "import { stat } from 'node:fs/promises';",
-    "import { extname } from 'node:path';",
+    "import { stat, mkdir } from 'node:fs/promises';",
+    "import { extname, dirname } from 'node:path';",
     "import sharp from 'sharp';",
     "",
     "const [, , inputPath, outputPath, levelArg, stripArg] = process.argv;",
@@ -48,13 +48,14 @@
     "  pipeline = pipeline.png({ compressionLevel: 9, effort, palette: false });",
     "} else { console.error(`unsupported format: ${ext}`); process.exit(3); }",
     "",
+    "await mkdir(dirname(outputPath), { recursive: true });",
     "await pipeline.toFile(outputPath);",
     "const inputBytes = (await stat(inputPath)).size;",
     "const outputBytes = (await stat(outputPath)).size;",
     "console.log(JSON.stringify({ inputBytes, outputBytes }));"
   ].join("\n") + "\n";
 
-  await coco.log("image-compressor v1.1.0 loaded");
+  await coco.log("image-compressor v1.1.1 loaded");
 
   coco.commands.on("compress", async function(args, ctx) {
     const signal = ctx && ctx.signal;

@@ -1,7 +1,7 @@
 {
   "id": "com.coco.image-compressor",
   "name": "Image Compressor",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Lossless PNG + high-quality JPEG compression, powered by sharp (Apple Silicon native). Outputs to a sibling 'compressed/' folder, preserves filenames + format. Picks up Finder selection automatically.",
   "author": "Coco",
   "category": "utilities",
