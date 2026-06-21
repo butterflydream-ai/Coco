@@ -14,6 +14,8 @@ export const DEFAULT_PLUGINS = [
   'com.coco.clipboard-stats',
   'com.coco.image-compressor',
   'com.coco.screen-color-picker',
+  'com.coco.hif-to-jpg',
+  'com.coco.blaze',
 ];
 
 const SEMVER = /^\d+\.\d+\.\d+([-+].+)?$/;

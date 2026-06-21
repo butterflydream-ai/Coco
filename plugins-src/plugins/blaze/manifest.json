@@ -1,0 +1,40 @@
+{
+  "id": "com.coco.blaze",
+  "name": "Blaze",
+  "version": "0.3.0",
+  "description": "Fire trail that follows your cursor — pick from five flame themes.",
+  "author": "Coco",
+  "category": "fun",
+  "homepage": "https://coco.butterflydream.ai/",
+  "repository": "https://github.com/butterflydream-ai/Coco",
+  "commands": [
+    {
+      "id": "start",
+      "title": { "en": "Ignite Blaze", "zh": "点燃 Blaze" },
+      "subtitle": { "en": "Fire trail on your cursor", "zh": "光标火焰轨迹" },
+      "keywords": ["blaze", "fire", "flame", "cursor", "trail", "highlight", "presentation", "火焰", "光标", "轨迹", "高亮"]
+    },
+    {
+      "id": "stop",
+      "title": { "en": "Extinguish Blaze", "zh": "熄灭 Blaze" },
+      "subtitle": { "en": "Close the fire trail overlay", "zh": "关闭火焰轨迹" },
+      "keywords": ["blaze", "stop", "close", "extinguish", "关闭", "熄灭"]
+    }
+  ],
+  "preferences": [
+    {
+      "id": "theme",
+      "type": "select",
+      "title": "Flame Theme",
+      "description": "Choose a flame color palette",
+      "default": "fire",
+      "options": [
+        { "value": "fire",   "label": "Fire" },
+        { "value": "frost",  "label": "Frost" },
+        { "value": "venom",  "label": "Venom" },
+        { "value": "arcane", "label": "Arcane" },
+        { "value": "sakura", "label": "Sakura" }
+      ]
+    }
+  ]
+}
