@@ -1,0 +1,79 @@
+{
+  "id": "com.coco.cursor-demo",
+  "name": "Cursor Demo",
+  "version": "0.1.0",
+  "description": "Presentation mode for your cursor: a glowing highlight ring, a fading motion trail, and click ripples so your audience can always see where the pointer is. Great for screen-sharing and demos.",
+  "author": "Coco",
+  "category": "productivity",
+  "homepage": "https://coco.butterflydream.ai/",
+  "repository": "https://github.com/butterflydream-ai/Coco",
+  "commands": [
+    {
+      "id": "start",
+      "title": { "en": "Start Cursor Demo", "zh": "开始光标演示" },
+      "subtitle": { "en": "Highlight the cursor with a glowing trail for presentations", "zh": "为演示高亮光标并显示运行轨迹" },
+      "keywords": ["cursor", "demo", "presentation", "trail", "highlight", "spotlight", "pointer", "光标", "鼠标", "演示", "轨迹", "高亮", "聚光灯", "指针"]
+    },
+    {
+      "id": "stop",
+      "title": { "en": "Stop Cursor Demo", "zh": "停止光标演示" },
+      "subtitle": { "en": "Close the cursor highlight overlay", "zh": "关闭光标高亮浮层" },
+      "keywords": ["cursor", "demo", "stop", "close", "exit", "光标", "停止", "关闭", "退出"]
+    }
+  ],
+  "preferences": [
+    {
+      "id": "color",
+      "type": "select",
+      "title": "Highlight color",
+      "description": "Color of the ring, trail, and click ripples.",
+      "default": "amber",
+      "options": [
+        { "value": "amber", "label": "Amber" },
+        { "value": "red", "label": "Red" },
+        { "value": "green", "label": "Green" },
+        { "value": "blue", "label": "Blue" },
+        { "value": "purple", "label": "Purple" }
+      ]
+    },
+    {
+      "id": "ringSize",
+      "type": "select",
+      "title": "Ring size",
+      "description": "Diameter of the highlight ring drawn around the cursor.",
+      "default": "medium",
+      "options": [
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ]
+    },
+    {
+      "id": "trailLength",
+      "type": "select",
+      "title": "Trail length",
+      "description": "How long the motion trail lingers behind the cursor.",
+      "default": "medium",
+      "options": [
+        { "value": "off", "label": "Off (ring only)" },
+        { "value": "short", "label": "Short" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "long", "label": "Long" }
+      ]
+    },
+    {
+      "id": "clickRipple",
+      "type": "boolean",
+      "title": "Click ripples",
+      "description": "Show an expanding ripple wherever you click.",
+      "default": true
+    },
+    {
+      "id": "spotlight",
+      "type": "boolean",
+      "title": "Spotlight",
+      "description": "Dim the rest of the screen and keep a bright circle around the cursor.",
+      "default": false
+    }
+  ]
+}
