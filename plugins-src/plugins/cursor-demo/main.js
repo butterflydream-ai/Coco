@@ -52,6 +52,23 @@
       }
     });
 
+    async function restartOverlay() {
+      if (!overlay) return;
+      try { await closeOverlay(overlay); } catch (e) {}
+      overlay = null;
+      try {
+        const config = await readConfig();
+        const result = await coco.window.open(buildWindowOptions(renderOverlay(config)));
+        overlay = result || { id: null };
+      } catch (err) {
+        await coco.log("cursor-demo restart failed: " + errorMessage(err));
+      }
+    }
+
+    for (const prefID of ["color", "ringSize", "trailLength", "clickRipple", "spotlight"]) {
+      coco.preferences.onChange(prefID, function () { restartOverlay(); });
+    }
+
     async function readConfig() {
       let prefs = {};
       try {

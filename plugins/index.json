@@ -1,6 +1,6 @@
 {
   "schema_version": "1",
-  "updated_at": "2026-06-21T17:33:54.487Z",
+  "updated_at": "2026-06-21T18:19:39.162Z",
   "plugins": [
     {
       "id": "com.coco.blaze",
@@ -14,7 +14,7 @@
       "repository": "https://github.com/butterflydream-ai/Coco",
       "screenshots": null,
       "download_url": "https://coco.butterflydream.ai/plugins/zips/com.coco.blaze-0.3.0.zip",
-      "sha256": "240785707cb55f1aade8dbc1a2293847602568462b0cce1b78f4e8445193239b",
+      "sha256": "c3ccf70749986bf326ffee0699fb71f80297d168be312395129bad31482251ef",
       "install_dir_name": "blaze"
     },
     {
@@ -44,7 +44,7 @@
       "repository": "https://github.com/butterflydream-ai/Coco",
       "screenshots": null,
       "download_url": "https://coco.butterflydream.ai/plugins/zips/com.coco.cursor-demo-0.1.0.zip",
-      "sha256": "f862ef11d4e584ac5115c53cfea528899b4a38cf7d79b36c81bcfc6b697e95b0",
+      "sha256": "3ba0819ea02d84894e3f1a3e5cca730bf15aa80042b31251203f5939579770fb",
       "install_dir_name": "cursor-demo"
     },
     {

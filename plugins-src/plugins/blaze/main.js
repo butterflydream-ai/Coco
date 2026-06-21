@@ -44,6 +44,28 @@
       await coco.log("blaze stopped");
     });
 
+    coco.preferences.onChange("theme", async function (newTheme) {
+      if (!overlayWindowId) return;
+      await coco.log("blaze theme changed to " + newTheme + ", restarting overlay");
+      try { await coco.window.close(overlayWindowId); } catch (err) {}
+      overlayWindowId = null;
+      var theme = newTheme || "fire";
+      try {
+        var result = await coco.window.open({
+          transparent: true,
+          clickThrough: true,
+          fullscreen: true,
+          level: "screenSaver",
+          joinAllSpaces: true,
+          hasShadow: false,
+          html: buildOverlayHTML(theme),
+        });
+        overlayWindowId = result && result.id;
+      } catch (err) {
+        await coco.log("blaze theme restart failed: " + (err && err.message ? err.message : String(err)));
+      }
+    });
+
     function buildOverlayHTML(theme) {
       return [
         "<!doctype html><html><head><meta charset='utf-8'>",
