@@ -31,7 +31,7 @@
         const config = await readConfig();
         const result = await coco.window.open(buildWindowOptions(renderOverlay(config)));
         overlay = result || { id: null };
-        await coco.toast("Cursor Demo on — press Esc to stop");
+        await coco.toast("Cursor Demo on");
         await coco.log("cursor-demo overlay opened id=" + (overlay && overlay.id));
       } catch (err) {
         overlay = null;
@@ -122,7 +122,6 @@
           await coco.log("cursor-demo window.close failed: " + errorMessage(err));
         }
       }
-      // No programmatic close available — the overlay still self-closes on Esc.
       return false;
     }
 
@@ -145,7 +144,7 @@
         "#hint.gone{opacity:0;}",
         "</style></head><body>",
         "<canvas id='c'></canvas>",
-        "<div id='hint'>Cursor Demo — move to point, press Esc to stop</div>",
+        "<div id='hint'>Cursor Demo — use Stop command to exit</div>",
         "<script>(", overlayScript.toString(), ")(", cfg, ");</script>",
         "</body></html>",
       ].join("");
@@ -232,15 +231,6 @@
     // 2) DOM fallback: drives the trail whenever the overlay is interactive.
     window.addEventListener("mousemove", function (e) { setPos(e.clientX, e.clientY); });
     window.addEventListener("mousedown", function (e) { addRipple(e.clientX, e.clientY); });
-
-    // --- Exit handling --------------------------------------------------
-    function exit() {
-      try { if (window.coco && coco.window && typeof coco.window.close === "function") coco.window.close(); } catch (e) {}
-      try { window.close(); } catch (e) {}
-    }
-    window.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") { e.preventDefault(); exit(); }
-    });
 
     // Fade the hint out after a few seconds.
     setTimeout(function () { hint.classList.add("gone"); }, 3200);

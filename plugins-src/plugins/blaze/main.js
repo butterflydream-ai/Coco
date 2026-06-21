@@ -69,7 +69,7 @@ var W, H;
 
 var THEMES = {
   fire:   { inner: [255,220,40],  outer: [220,40,20]   },
-  frost:  { inner: [180,230,255], outer: [40,120,220]  },
+  frost:  { inner: [240,248,255], outer: [60,170,240]  },
   venom:  { inner: [200,255,60],  outer: [40,180,60]   },
   arcane: { inner: [200,160,255], outer: [130,40,200]  },
   sakura: { inner: [255,190,210], outer: [240,60,120]  }

@@ -12,6 +12,7 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 // Curated first-launch default set. Maintainers edit this list.
 export const DEFAULT_PLUGINS = [
   'com.coco.clipboard-stats',
+  'com.coco.cursor-demo',
   'com.coco.image-compressor',
   'com.coco.screen-color-picker',
   'com.coco.hif-to-jpg',

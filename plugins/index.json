@@ -1,6 +1,6 @@
 {
   "schema_version": "1",
-  "updated_at": "2026-06-21T11:21:13.518Z",
+  "updated_at": "2026-06-21T17:33:54.487Z",
   "plugins": [
     {
       "id": "com.coco.blaze",
@@ -14,7 +14,7 @@
       "repository": "https://github.com/butterflydream-ai/Coco",
       "screenshots": null,
       "download_url": "https://coco.butterflydream.ai/plugins/zips/com.coco.blaze-0.3.0.zip",
-      "sha256": "8c3a2a256c40ffacc64c5683c4c94e0956abd59846cafc741ba60cb82d7cf376",
+      "sha256": "240785707cb55f1aade8dbc1a2293847602568462b0cce1b78f4e8445193239b",
       "install_dir_name": "blaze"
     },
     {
@@ -44,7 +44,7 @@
       "repository": "https://github.com/butterflydream-ai/Coco",
       "screenshots": null,
       "download_url": "https://coco.butterflydream.ai/plugins/zips/com.coco.cursor-demo-0.1.0.zip",
-      "sha256": "44984a0e5ab865ae80ebe8cfca06e6c451eecd001baa59c9890273efefca2112",
+      "sha256": "f862ef11d4e584ac5115c53cfea528899b4a38cf7d79b36c81bcfc6b697e95b0",
       "install_dir_name": "cursor-demo"
     },
     {
@@ -95,6 +95,7 @@
   ],
   "default_plugins": [
     "com.coco.clipboard-stats",
+    "com.coco.cursor-demo",
     "com.coco.image-compressor",
     "com.coco.screen-color-picker",
     "com.coco.hif-to-jpg",
