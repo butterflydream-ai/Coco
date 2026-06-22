@@ -1,11 +1,11 @@
 {
   "schema_version": "1",
-  "updated_at": "2026-06-21T18:19:39.162Z",
+  "updated_at": "2026-06-22T11:55:28.638Z",
   "plugins": [
     {
       "id": "com.coco.blaze",
-      "name": "Blaze",
-      "version": "0.3.0",
+      "name": "Cursor Glow",
+      "version": "0.4.0",
       "description": "Fire trail that follows your cursor — pick from five flame themes.",
       "author": "Coco",
       "category": "fun",
@@ -13,8 +13,8 @@
       "homepage": "https://coco.butterflydream.ai/",
       "repository": "https://github.com/butterflydream-ai/Coco",
       "screenshots": null,
-      "download_url": "https://coco.butterflydream.ai/plugins/zips/com.coco.blaze-0.3.0.zip",
-      "sha256": "c3ccf70749986bf326ffee0699fb71f80297d168be312395129bad31482251ef",
+      "download_url": "https://coco.butterflydream.ai/plugins/zips/com.coco.blaze-0.4.0.zip",
+      "sha256": "b71aa302456ee505786be3a8a99cad35eec361eed6a59c46b28b6bbaf61d2d77",
       "install_dir_name": "blaze"
     },
     {
@@ -31,21 +31,6 @@
       "download_url": "https://coco.butterflydream.ai/plugins/zips/com.coco.clipboard-stats-0.2.1.zip",
       "sha256": "dedd96cc6d58b22db48d85b96154389f039b70a8edfb9565f2911d5460538896",
       "install_dir_name": "clipboard-stats"
-    },
-    {
-      "id": "com.coco.cursor-demo",
-      "name": "Cursor Demo",
-      "version": "0.1.0",
-      "description": "Presentation mode for your cursor: a glowing highlight ring, a fading motion trail, and click ripples so your audience can always see where the pointer is. Great for screen-sharing and demos.",
-      "author": "Coco",
-      "category": "productivity",
-      "icon_url": null,
-      "homepage": "https://coco.butterflydream.ai/",
-      "repository": "https://github.com/butterflydream-ai/Coco",
-      "screenshots": null,
-      "download_url": "https://coco.butterflydream.ai/plugins/zips/com.coco.cursor-demo-0.1.0.zip",
-      "sha256": "3ba0819ea02d84894e3f1a3e5cca730bf15aa80042b31251203f5939579770fb",
-      "install_dir_name": "cursor-demo"
     },
     {
       "id": "com.coco.hif-to-jpg",
@@ -95,10 +80,8 @@
   ],
   "default_plugins": [
     "com.coco.clipboard-stats",
-    "com.coco.cursor-demo",
     "com.coco.image-compressor",
     "com.coco.screen-color-picker",
-    "com.coco.hif-to-jpg",
-    "com.coco.blaze"
+    "com.coco.hif-to-jpg"
   ]
 }
