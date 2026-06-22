@@ -1,11 +1,11 @@
 {
   "schema_version": "1",
-  "updated_at": "2026-06-22T11:55:28.638Z",
+  "updated_at": "2026-06-22T15:49:12.810Z",
   "plugins": [
     {
       "id": "com.coco.blaze",
       "name": "Cursor Glow",
-      "version": "0.4.0",
+      "version": "0.5.0",
       "description": "Fire trail that follows your cursor — pick from five flame themes.",
       "author": "Coco",
       "category": "fun",
@@ -13,8 +13,8 @@
       "homepage": "https://coco.butterflydream.ai/",
       "repository": "https://github.com/butterflydream-ai/Coco",
       "screenshots": null,
-      "download_url": "https://coco.butterflydream.ai/plugins/zips/com.coco.blaze-0.4.0.zip",
-      "sha256": "b71aa302456ee505786be3a8a99cad35eec361eed6a59c46b28b6bbaf61d2d77",
+      "download_url": "https://coco.butterflydream.ai/plugins/zips/com.coco.blaze-0.5.0.zip",
+      "sha256": "9371c53920746866343f1e7f46fee4d2ecc55fc846c4601988943fc75b126293",
       "install_dir_name": "blaze"
     },
     {

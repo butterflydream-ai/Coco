@@ -97,7 +97,6 @@ var THEMES = {
   sakura: { inner: [255,190,210], outer: [240,60,120]  }
 };
 var palette = THEMES[BLAZE_THEME] || THEMES.fire;
-var CI = palette.inner;
 var CO = palette.outer;
 
 var mx = -200, my = -200, clicked = false;
@@ -119,6 +118,7 @@ resize();
 window.addEventListener('resize', resize);
 
 var lastX = -200, lastY = -200;
+var lastMoveTime = 0;
 
 coco.system.onMouseMove(function(e) {
   mx = e.x; my = e.y;
@@ -127,6 +127,7 @@ coco.system.onMouseMove(function(e) {
   if (dx * dx + dy * dy > 1) {
     points.push({ x: mx, y: my, t: now });
     if (points.length > MAX_POINTS) points.shift();
+    lastMoveTime = now;
   }
   if (e.clicked && !clicked) {
     ripples.push({ x: mx, y: my, t: now });
@@ -244,25 +245,19 @@ function draw() {
     }
     smooth.push(points[n - 1]);
 
-    // outer flame ribbon
-    var outerRibbon = buildRibbon(smooth, now, 1.8);
-    if (outerRibbon) fillRibbon(outerRibbon, CO);
-
-    // inner flame ribbon
-    var innerRibbon = buildRibbon(smooth, now, 0.6);
-    if (innerRibbon) fillRibbon(innerRibbon, CI);
+    var ribbon = buildRibbon(smooth, now, 1.8);
+    if (ribbon) fillRibbon(ribbon, CO);
   }
 
-  // cursor dot
+  // cursor dot — fades out when stationary
   if (mx > -50) {
-    ctx.beginPath();
-    ctx.arc(mx, my, clicked ? 5.5 : 4.5, 0, Math.PI * 2);
-    ctx.fillStyle = 'rgb('+CO[0]+','+CO[1]+','+CO[2]+')';
-    ctx.fill();
-    ctx.beginPath();
-    ctx.arc(mx, my, clicked ? 3 : 2.5, 0, Math.PI * 2);
-    ctx.fillStyle = 'rgb('+CI[0]+','+CI[1]+','+CI[2]+')';
-    ctx.fill();
+    var showDot = lastMoveTime <= 0 || now === lastMoveTime;
+    if (showDot) {
+      ctx.beginPath();
+      ctx.arc(mx, my, clicked ? 5 : 4, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba('+CO[0]+','+CO[1]+','+CO[2]+',1)';
+      ctx.fill();
+    }
   }
 
   // click ripples

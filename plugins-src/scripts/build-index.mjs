@@ -12,21 +12,31 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 // Curated first-launch default set. Maintainers edit this list.
 export const DEFAULT_PLUGINS = [
   'com.coco.clipboard-stats',
-  'com.coco.cursor-demo',
   'com.coco.image-compressor',
   'com.coco.screen-color-picker',
   'com.coco.hif-to-jpg',
-  'com.coco.blaze',
 ];
 
 const SEMVER = /^\d+\.\d+\.\d+([-+].+)?$/;
 const CATEGORIES = new Set(['productivity', 'utilities', 'developer', 'media', 'fun', 'other']);
 
+function resolveDisplayName(name) {
+  if (typeof name === 'string') return name;
+  if (name && typeof name === 'object') return name.en || Object.values(name)[0] || '';
+  return '';
+}
+
 function validateManifest(m, dir) {
-  for (const k of ['id', 'name', 'version']) {
+  for (const k of ['id', 'version']) {
     if (!m[k] || typeof m[k] !== 'string') {
       throw new Error(`${dir}: missing required field '${k}'`);
     }
+  }
+  if (!m.name || (typeof m.name !== 'string' && typeof m.name !== 'object')) {
+    throw new Error(`${dir}: missing required field 'name'`);
+  }
+  if (!resolveDisplayName(m.name)) {
+    throw new Error(`${dir}: 'name' must have a non-empty value`);
   }
   if (!SEMVER.test(m.version)) throw new Error(`${dir}: version '${m.version}' is not semver`);
   if (m.category && !CATEGORIES.has(m.category)) {
@@ -70,9 +80,10 @@ export function buildIndex({ pluginsDir, distDir, baseURL, defaultPlugins }) {
     // unique across the catalog. A second plugin reusing a known name/id is the
     // documented typosquat attack vector (see deep-research R3).
     if (seenIDs.has(m.id)) throw new Error(`${folder}: duplicate plugin id '${m.id}'`);
-    const nameKey = m.name.trim().toLowerCase();
+    const displayName = resolveDisplayName(m.name);
+    const nameKey = displayName.trim().toLowerCase();
     if (seenNames.has(nameKey)) {
-      throw new Error(`${folder}: duplicate plugin name '${m.name}' (impersonation guard)`);
+      throw new Error(`${folder}: duplicate plugin name '${displayName}' (impersonation guard)`);
     }
     seenIDs.add(m.id);
     seenNames.add(nameKey);
@@ -103,7 +114,7 @@ export function buildIndex({ pluginsDir, distDir, baseURL, defaultPlugins }) {
 
     plugins.push({
       id: m.id,
-      name: m.name,
+      name: displayName,
       version: m.version,
       description: m.description ?? null,
       author: m.author ?? null,

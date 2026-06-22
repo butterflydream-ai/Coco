@@ -1,7 +1,7 @@
 {
   "id": "com.coco.blaze",
-  "name": "Blaze",
-  "version": "0.3.0",
+  "name": { "en": "Cursor Glow", "zh": "光标光效" },
+  "version": "0.5.0",
   "description": "Fire trail that follows your cursor — pick from five flame themes.",
   "author": "Coco",
   "category": "fun",
@@ -10,30 +10,30 @@
   "commands": [
     {
       "id": "start",
-      "title": { "en": "Ignite Blaze", "zh": "点燃 Blaze" },
+      "title": { "en": "Start Cursor Glow", "zh": "开始光标光效" },
       "subtitle": { "en": "Fire trail on your cursor", "zh": "光标火焰轨迹" },
-      "keywords": ["blaze", "fire", "flame", "cursor", "trail", "highlight", "presentation", "火焰", "光标", "轨迹", "高亮"]
+      "keywords": ["glow", "blaze", "fire", "flame", "cursor", "trail", "highlight", "presentation", "火焰", "光标", "轨迹", "高亮", "光效"]
     },
     {
       "id": "stop",
-      "title": { "en": "Extinguish Blaze", "zh": "熄灭 Blaze" },
+      "title": { "en": "Stop Cursor Glow", "zh": "停止光标光效" },
       "subtitle": { "en": "Close the fire trail overlay", "zh": "关闭火焰轨迹" },
-      "keywords": ["blaze", "stop", "close", "extinguish", "关闭", "熄灭"]
+      "keywords": ["glow", "blaze", "stop", "close", "extinguish", "关闭", "熄灭", "停止", "光效"]
     }
   ],
   "preferences": [
     {
       "id": "theme",
       "type": "select",
-      "title": "Flame Theme",
-      "description": "Choose a flame color palette",
+      "title": { "en": "Flame Theme", "zh": "火焰主题" },
+      "description": { "en": "Choose a flame color palette", "zh": "选择火焰配色方案" },
       "default": "fire",
       "options": [
-        { "value": "fire",   "label": "Fire" },
-        { "value": "frost",  "label": "Frost" },
-        { "value": "venom",  "label": "Venom" },
-        { "value": "arcane", "label": "Arcane" },
-        { "value": "sakura", "label": "Sakura" }
+        { "value": "fire",   "label": { "en": "Fire",   "zh": "烈焰" } },
+        { "value": "frost",  "label": { "en": "Frost",  "zh": "寒霜" } },
+        { "value": "venom",  "label": { "en": "Venom",  "zh": "毒液" } },
+        { "value": "arcane", "label": { "en": "Arcane", "zh": "奥术" } },
+        { "value": "sakura", "label": { "en": "Sakura", "zh": "樱花" } }
       ]
     }
   ]
