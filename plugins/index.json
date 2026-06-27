@@ -1,6 +1,6 @@
 {
   "schema_version": "1",
-  "updated_at": "2026-06-22T15:49:12.810Z",
+  "updated_at": "2026-06-27T01:14:35.502Z",
   "plugins": [
     {
       "id": "com.coco.blaze",
@@ -61,6 +61,21 @@
       "download_url": "https://coco.butterflydream.ai/plugins/zips/com.coco.image-compressor-1.1.1.zip",
       "sha256": "2baa72994c9f942ce287dcd387fdcb394bc073e46a4ccbb6f532c19369d56061",
       "install_dir_name": "image-compressor"
+    },
+    {
+      "id": "com.coco.qta-to-mp3",
+      "name": "QTA to MP3",
+      "version": "0.1.0",
+      "description": "Convert iPhone Voice Memo / QTA recordings to MP3 next to the originals. Decodes with the built-in macOS audio engine and encodes with a bundled LAME — no ffmpeg or Homebrew required. Never overwrites existing files.",
+      "author": "Coco",
+      "category": "media",
+      "icon_url": "https://coco.butterflydream.ai/plugins/icons/com.coco.qta-to-mp3.png",
+      "homepage": "https://coco.butterflydream.ai/",
+      "repository": "https://github.com/butterflydream-ai/Coco",
+      "screenshots": null,
+      "download_url": "https://coco.butterflydream.ai/plugins/zips/com.coco.qta-to-mp3-0.1.0.zip",
+      "sha256": "a41620a253a38c7609e9b41465d5b6df70d771a1acfb7dc5078890968c6ecbf0",
+      "install_dir_name": "qta-to-mp3"
     },
     {
       "id": "com.coco.screen-color-picker",
