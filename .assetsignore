@@ -1,0 +1,5 @@
+# The stable filenames remain in the public GitHub repository for direct links,
+# but Pages serves them through _redirects. Excluding the duplicate 13 MB
+# binaries keeps the direct-upload batch below the gateway request limit.
+Coco-macos.dmg
+Coco-macos.zip
