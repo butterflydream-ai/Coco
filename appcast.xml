@@ -3,14 +3,14 @@
     <channel>
         <title>Coco</title>
         <item>
-            <title>1.16.7</title>
-            <pubDate>Sun, 02 Aug 2026 00:36:15 +0800</pubDate>
+            <title>1.17.1</title>
+            <pubDate>Tue, 18 Aug 2026 10:04:36 +0800</pubDate>
             <link>https://github.com/butterflydream-ai/Coco/releases</link>
-            <sparkle:version>1905</sparkle:version>
-            <sparkle:shortVersionString>1.16.7</sparkle:shortVersionString>
+            <sparkle:version>1787018529</sparkle:version>
+            <sparkle:shortVersionString>1.17.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <enclosure url="https://coco.butterflydream.ai/Coco-1.16.7-macos.zip" length="12125457" type="application/octet-stream" sparkle:edSignature="6F2F2lWrSK+1AxkokiLtKt5SMJrnCNVloh3X2t//lotPIGiY2EqIBMKx17/YpCmoQpW6QKtidFUNT9po+8nVAg=="/>
+            <enclosure url="https://coco.butterflydream.ai/Coco-1.17.1-macos.zip" length="13153706" type="application/octet-stream" sparkle:edSignature="GRtTrZJKIf2GzNxidLJUjrpQlX287bwN+cVSMWrgutkZu52k8DkU+vG9B0v/SJlBguaunYZgAqM+LD3L/Mr/Dw=="/>
         </item>
     </channel>
 </rss>
