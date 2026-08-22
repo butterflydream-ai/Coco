@@ -1,8 +1,9 @@
 {
   "id": "com.coco.blaze",
   "name": { "en": "Cursor Glow", "zh": "光标光效" },
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Fire trail that follows your cursor — pick from five flame themes.",
+  "release_notes": "Adds a Store icon and documentation. No change to how the overlay behaves.",
   "author": "Coco",
   "category": "fun",
   "homepage": "https://coco.butterflydream.ai/",

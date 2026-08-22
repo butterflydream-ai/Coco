@@ -3,6 +3,7 @@
   "name": "HIF to JPG",
   "version": "0.1.0",
   "description": "Convert Fuji HIF / HEIF / HEIC photos to JPG next to the originals. Uses Finder selection when available and never overwrites existing JPG files.",
+  "release_notes": "First release.",
   "author": "Coco",
   "category": "media",
   "homepage": "https://coco.butterflydream.ai/",

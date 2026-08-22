@@ -3,6 +3,7 @@
   "name": { "en": "QTA to MP3", "zh": "QTA 转 MP3" },
   "version": "0.1.0",
   "description": "Convert iPhone Voice Memo / QTA recordings to MP3 next to the originals. Decodes with the built-in macOS audio engine and encodes with a bundled LAME — no ffmpeg or Homebrew required. Never overwrites existing files.",
+  "release_notes": "First release.",
   "author": "Coco",
   "category": "media",
   "homepage": "https://coco.butterflydream.ai/",

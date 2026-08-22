@@ -2,7 +2,7 @@ import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import {
   readdirSync, readFileSync, writeFileSync, mkdirSync, rmSync,
-  existsSync, statSync, copyFileSync,
+  existsSync, statSync, copyFileSync, utimesSync,
 } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -43,6 +43,31 @@ function validateManifest(m, dir) {
     throw new Error(`${dir}: unknown category '${m.category}'`);
   }
   if (!Array.isArray(m.commands)) throw new Error(`${dir}: 'commands' must be an array`);
+  // Optional, but if present it is rendered verbatim on the site's detail
+  // page — an accidental object or array would reach the DOM as "[object
+  // Object]" rather than fail here.
+  if (m.release_notes != null && typeof m.release_notes !== 'string') {
+    throw new Error(`${dir}: 'release_notes' must be a string`);
+  }
+}
+
+// Zip archives record each entry's modification time, so an unchanged plugin
+// zipped on a fresh checkout produces a DIFFERENT sha256 than the published
+// one — every entry in index.json churns whenever any single plugin is
+// touched. That is not cosmetic: an installer holding a slightly older
+// index.json and a slightly newer zip fails its sha256 check (Store invariant
+// I1) for a plugin nobody edited. Pinning mtimes (and forcing UTC for the zip
+// child, since the DOS timestamp field is local time) makes the archive a pure
+// function of file contents, names and modes.
+const ZIP_EPOCH = new Date('2020-01-01T00:00:00Z');
+
+function normalizeMtimes(dir) {
+  for (const name of readdirSync(dir)) {
+    const p = join(dir, name);
+    if (statSync(p).isDirectory()) normalizeMtimes(p);
+    else utimesSync(p, ZIP_EPOCH, ZIP_EPOCH);
+  }
+  utimesSync(dir, ZIP_EPOCH, ZIP_EPOCH);
 }
 
 function sha256File(path) {
@@ -102,7 +127,11 @@ export function buildIndex({ pluginsDir, distDir, baseURL, defaultPlugins }) {
     const zipPath = join(zipsDir, zipName);
     // zip the folder so its top-level entry is the plugin dir (StoreInstaller
     // looks for a single top-level dir containing manifest.json).
-    execFileSync('zip', ['-q', '-r', '-X', zipPath, folder], { cwd: pluginsDir });
+    normalizeMtimes(dir);
+    execFileSync('zip', ['-q', '-r', '-X', zipPath, folder], {
+      cwd: pluginsDir,
+      env: { ...process.env, TZ: 'UTC' },
+    });
     const sha = sha256File(zipPath);
 
     let iconURL;
@@ -123,6 +152,11 @@ export function buildIndex({ pluginsDir, distDir, baseURL, defaultPlugins }) {
       homepage: m.homepage ?? null,
       repository: m.repository ?? 'https://github.com/butterflydream-ai/Coco',
       screenshots: m.screenshots ?? null,
+      // Optional in the manifest, always present in the index — the site
+      // renders the "What's new" block only when it is a non-empty string,
+      // so a null here is the explicit "this version has no note" and not a
+      // missing key the consumer has to guess about.
+      release_notes: m.release_notes ?? null,
       download_url: `${baseURL}/zips/${zipName}`,
       sha256: sha,
       install_dir_name: folder,

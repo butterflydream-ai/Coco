@@ -3,6 +3,7 @@
   "name": "Screen Color Picker",
   "version": "0.3.1",
   "description": "Sample any pixel on screen and copy its hex code to the clipboard.",
+  "release_notes": "Ships the plugin's Store icon.",
   "author": "Coco",
   "category": "utilities",
   "homepage": "https://coco.butterflydream.ai/",

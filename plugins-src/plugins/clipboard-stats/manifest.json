@@ -3,6 +3,7 @@
   "name": "Clipboard Stats",
   "version": "0.2.1",
   "description": "Pop a panel showing char / word / line counts of the current clipboard text.",
+  "release_notes": "Ships the plugin's Store icon.",
   "author": "Coco",
   "category": "utilities",
   "homepage": "https://coco.butterflydream.ai/",

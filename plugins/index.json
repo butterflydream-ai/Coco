@@ -1,20 +1,21 @@
 {
   "schema_version": "1",
-  "updated_at": "2026-06-27T01:14:35.502Z",
+  "updated_at": "2026-08-22T15:40:37.170Z",
   "plugins": [
     {
       "id": "com.coco.blaze",
       "name": "Cursor Glow",
-      "version": "0.5.0",
+      "version": "0.5.1",
       "description": "Fire trail that follows your cursor — pick from five flame themes.",
       "author": "Coco",
       "category": "fun",
-      "icon_url": null,
+      "icon_url": "https://coco.butterflydream.ai/plugins/icons/com.coco.blaze.png",
       "homepage": "https://coco.butterflydream.ai/",
       "repository": "https://github.com/butterflydream-ai/Coco",
       "screenshots": null,
-      "download_url": "https://coco.butterflydream.ai/plugins/zips/com.coco.blaze-0.5.0.zip",
-      "sha256": "9371c53920746866343f1e7f46fee4d2ecc55fc846c4601988943fc75b126293",
+      "release_notes": "Adds a Store icon and documentation. No change to how the overlay behaves.",
+      "download_url": "https://coco.butterflydream.ai/plugins/zips/com.coco.blaze-0.5.1.zip",
+      "sha256": "bfe902d5cca16001b35b40f344a1fcba83f5356b660542acb96c650c261e654a",
       "install_dir_name": "blaze"
     },
     {
@@ -28,8 +29,9 @@
       "homepage": "https://coco.butterflydream.ai/",
       "repository": "https://github.com/butterflydream-ai/Coco",
       "screenshots": null,
+      "release_notes": "Ships the plugin's Store icon.",
       "download_url": "https://coco.butterflydream.ai/plugins/zips/com.coco.clipboard-stats-0.2.1.zip",
-      "sha256": "dedd96cc6d58b22db48d85b96154389f039b70a8edfb9565f2911d5460538896",
+      "sha256": "a89bd4c5e33119b87758b6ee0317c631ace6b5fdfa5a17096a666209f7aeac47",
       "install_dir_name": "clipboard-stats"
     },
     {
@@ -43,8 +45,9 @@
       "homepage": "https://coco.butterflydream.ai/",
       "repository": "https://github.com/butterflydream-ai/Coco",
       "screenshots": null,
+      "release_notes": "First release.",
       "download_url": "https://coco.butterflydream.ai/plugins/zips/com.coco.hif-to-jpg-0.1.0.zip",
-      "sha256": "a2cc9f7f5f03d081e694891b7da16a709ef9b14cd84d2531ab91ada002e01b12",
+      "sha256": "7cc80cde398ad2bf716cb6154cdda3b966db36c00acf0a4051a6c4bc55001e4f",
       "install_dir_name": "hif-to-jpg"
     },
     {
@@ -58,8 +61,9 @@
       "homepage": "https://coco.butterflydream.ai/",
       "repository": "https://github.com/butterflydream-ai/Coco",
       "screenshots": null,
+      "release_notes": "Creates the output folder before writing, so compressing into a new 'compressed/' folder no longer fails.",
       "download_url": "https://coco.butterflydream.ai/plugins/zips/com.coco.image-compressor-1.1.1.zip",
-      "sha256": "2baa72994c9f942ce287dcd387fdcb394bc073e46a4ccbb6f532c19369d56061",
+      "sha256": "c24631c62f467b14cc51ea3abe07e209cdfc6a584a6e9ca00498ed4f275d24c1",
       "install_dir_name": "image-compressor"
     },
     {
@@ -73,8 +77,9 @@
       "homepage": "https://coco.butterflydream.ai/",
       "repository": "https://github.com/butterflydream-ai/Coco",
       "screenshots": null,
+      "release_notes": "First release.",
       "download_url": "https://coco.butterflydream.ai/plugins/zips/com.coco.qta-to-mp3-0.1.0.zip",
-      "sha256": "a41620a253a38c7609e9b41465d5b6df70d771a1acfb7dc5078890968c6ecbf0",
+      "sha256": "9a3c61694361e1c96b48e02661b5e363fede2f50c928e13cb6eafaa0db9b0f54",
       "install_dir_name": "qta-to-mp3"
     },
     {
@@ -88,8 +93,9 @@
       "homepage": "https://coco.butterflydream.ai/",
       "repository": "https://github.com/butterflydream-ai/Coco",
       "screenshots": null,
+      "release_notes": "Ships the plugin's Store icon.",
       "download_url": "https://coco.butterflydream.ai/plugins/zips/com.coco.screen-color-picker-0.3.1.zip",
-      "sha256": "e43a5236f157c158b183601496f04078bce7a002d8374706b769aefade065259",
+      "sha256": "60376c528a34721eacf5cd0982c3d41a59d7298dfb71b5bc7405897757095be2",
       "install_dir_name": "screen-color-picker"
     }
   ],

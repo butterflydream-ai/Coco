@@ -3,6 +3,7 @@
   "name": "Image Compressor",
   "version": "1.1.1",
   "description": "Lossless PNG + high-quality JPEG compression, powered by sharp (Apple Silicon native). Outputs to a sibling 'compressed/' folder, preserves filenames + format. Picks up Finder selection automatically.",
+  "release_notes": "Creates the output folder before writing, so compressing into a new 'compressed/' folder no longer fails.",
   "author": "Coco",
   "category": "utilities",
   "homepage": "https://coco.butterflydream.ai/",
