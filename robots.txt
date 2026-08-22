@@ -1,3 +1,10 @@
+# This origin (coco-web-e6z.pages.dev, and this repo's GitHub Pages) exists to
+# serve the update feed, the plugin index and the download redirects — nothing
+# here is meant to be read by a person or indexed by anyone.
+#
+# The website lives at https://coco.butterflydream.ai, served by the coco-site
+# Worker, which answers robots.txt itself on that hostname and does allow
+# crawling. Leaving this origin crawlable published a second, stale copy of
+# the whole site.
 User-agent: *
-Allow: /
-Sitemap: https://coco.butterflydream.ai/sitemap.xml
+Disallow: /
