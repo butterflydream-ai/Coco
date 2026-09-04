@@ -1,0 +1,42 @@
+{
+  "skill_name": "coco",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "帮我看一下我剪贴板里最近 5 条记录是什么，然后把里面最长的那条文本重新复制到剪贴板顶部。",
+      "expected_output": "Uses `coco clipboard list --limit 5 --json`, picks the longest text entry, re-copies it with `coco clipboard copy --text …`, and reports the five entries plus which one was re-copied. Does not use pbpaste/pbcopy.",
+      "files": [],
+      "assertions": [
+        "result.md lists five clipboard entries with their text (or a clear note that fewer exist)",
+        "Commands run include `coco clipboard list` (or `coco call clipboard.list`) to read history",
+        "The longest text entry was re-copied via `coco clipboard copy --text …`",
+        "No pbpaste/pbcopy/osascript clipboard commands were used"
+      ]
+    },
+    {
+      "id": 1,
+      "prompt": "截一张我现在整个屏幕的图存到 /tmp/coco-eval-shot.png，看一下图里右上角菜单栏显示的时间，告诉我是几点几分。",
+      "expected_output": "Uses `coco screenshot capture --mode screen --outputPath /tmp/coco-eval-shot.png`, then reads the PNG with an image-capable tool and reports the clock time visible in the menu bar. Does not use `screencapture`.",
+      "files": [],
+      "assertions": [
+        "A PNG screenshot file was produced (shot.png saved in outputs and is a valid PNG)",
+        "Commands run include `coco screenshot capture` with --outputPath",
+        "result.md states a clock time in HH:MM form read from the menu bar",
+        "The `screencapture` command was not used"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "把 Coco 的剪贴板历史上限改成 300 条，改完不要让我重启，确认一下现在生效的值，然后再改回原来的值。",
+      "expected_output": "Reads the current `clipboardHistoryLimit` with `coco settings get`, sets it to 300 with `coco settings set … --json` (result shows appliesOn live), reads it back, then restores the original value and confirms. Reports original, changed, and restored values.",
+      "files": [],
+      "assertions": [
+        "Commands run include `coco settings get --key clipboardHistoryLimit` before changing anything",
+        "Commands run include `coco settings set --key clipboardHistoryLimit --value 300` (or settings patch)",
+        "result.md reports the read-back value 300 after the change without any app restart",
+        "The original value was restored and confirmed by a final read",
+        "No direct edits to config.json and no quitting/relaunching of Coco"
+      ]
+    }
+  ]
+}

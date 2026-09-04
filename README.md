@@ -30,6 +30,7 @@ Written in Swift + AppKit. Around 2&nbsp;MB, instant to summon, no Electron.
 
 ## Features
 
+- **Built for AI agents** — a `coco` command line and an MCP server expose all 71 Coco actions (clipboard history, apps, screenshots, live-caption transcripts, plugins, every setting) to Claude Code, Codex, Cursor and any MCP client. No permission prompts: installing Coco is the authorization. [Details ↓](#ai-agents)
 - **App launcher** — fuzzy search with pinyin / romaji / Hangul-initial matching, plus per-app actions.
 - **Clipboard history & favorites** — searchable, Space to preview, paste straight back into the app you came from.
 - **Calculator & conversion** — arithmetic, units, live currency rates.
@@ -38,6 +39,21 @@ Written in Swift + AppKit. Around 2&nbsp;MB, instant to summon, no Electron.
 - **Plugins & Coco Store** — browse and install JS plugins in-app.
 - **Four languages** — English, 简体中文, 日本語, 한국어, following your system.
 - **Silent auto-update** — new versions download and install themselves.
+
+## AI agents
+
+Coco ships an agent control layer so an AI assistant can drive your Mac through it:
+
+```bash
+coco cli install                              # put `coco` on your PATH
+coco mcp install --client claude-code         # register the MCP server (also: claude-desktop, cursor, codex)
+coco skill install                            # link the Agent Skill into ~/.claude/skills and ~/.agents/skills
+coco capabilities                             # list all methods
+```
+
+The skill source lives in this repo at [`skills/coco`](skills/coco). Install it standalone with `npx skills add butterflydream-ai/Coco --skill coco -g -y`.
+
+Everything is allowed by default; block individual methods in Coco → Settings → Agent Access. Secrets (API keys, license cache, Keychains) are never readable through the agent layer.
 
 ## In action
 
@@ -75,6 +91,7 @@ All rebindable in Settings.
 
 Coco 是一个原生 macOS 启动器，常驻菜单栏，按 **⌥Space** 唤出：搜应用、翻剪贴板历史、算个数、换算单位汇率、找 emoji、跑自定义命令。Swift + AppKit 写的，约 2&nbsp;MB，不吃内存。
 
+- **为 AI 代理而生** — `coco` 命令行与 MCP 服务器把 Coco 的 71 个动作（剪贴板历史、应用、截图、实时字幕转写、插件、全部设置）开放给 Claude Code、Codex、Cursor 及任何 MCP 客户端。无权限弹窗，安装即授权。[详见 ↓](#ai-代理)
 - 应用搜索支持拼音 / 罗马音 / 韩文初声，含逐应用动作
 - 剪贴板历史 + 收藏，空格预览，一键粘回原应用
 - 计算器、单位换算、实时汇率、Emoji、网页搜索、Shell 命令别名
@@ -83,6 +100,19 @@ Coco 是一个原生 macOS 启动器，常驻菜单栏，按 **⌥Space** 唤出
 - 静默自动更新
 
 [下载 DMG](https://coco.butterflydream.ai/Coco-macos.dmg) → 拖进「应用程序」→ 首次右键「打开」→ 按 ⌥Space。需 macOS 14+ Apple Silicon。
+
+## AI 代理
+
+Coco 内置代理控制层，让 AI 助手通过它驱动你的 Mac：
+
+```bash
+coco cli install                              # put `coco` on your PATH
+coco mcp install --client claude-code         # register the MCP server (also: claude-desktop, cursor, codex)
+coco skill install                            # link the Agent Skill into ~/.claude/skills and ~/.agents/skills
+coco capabilities                             # list all methods
+```
+
+技能源代码在仓库的 [`skills/coco`](skills/coco)。用 `npx skills add butterflydream-ai/Coco --skill coco -g -y` 独立安装。默认全部允许，在 Coco → 设置 → 代理访问权限 中禁用具体方法。密钥（API key、许可证缓存、钥匙链）无法通过代理层读取。
 
 ## Author
 
