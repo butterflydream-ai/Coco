@@ -67,7 +67,7 @@ Everything is allowed by default; block individual methods in Coco → Settings 
 
 ## Install
 
-1. [Download the DMG](https://coco.butterflydream.ai/Coco-macos.dmg) (or the [zip](https://coco.butterflydream.ai/Coco-macos.zip)).
+1. [Download the DMG](https://coco.butterflydream.ai/Coco-macos.dmg) (or the [zip](https://coco.butterflydream.ai/Coco-macos.zip)), or install via Homebrew: `brew install --cask butterflydream-ai/tap/coco`.
 2. Drag **Coco** into **Applications**.
 3. First launch: right-click Coco → **Open**. The build is ad-hoc signed, so Gatekeeper asks once.
 4. Press **⌥Space**. The first run walks you through the couple of permissions it needs.
@@ -99,7 +99,7 @@ Coco 是一个原生 macOS 启动器，常驻菜单栏，按 **⌥Space** 唤出
 - 中 / 英 / 日 / 韩四语，跟随系统
 - 静默自动更新
 
-[下载 DMG](https://coco.butterflydream.ai/Coco-macos.dmg) → 拖进「应用程序」→ 首次右键「打开」→ 按 ⌥Space。需 macOS 14+ Apple Silicon。
+[下载 DMG](https://coco.butterflydream.ai/Coco-macos.dmg)（或用 Homebrew：`brew install --cask butterflydream-ai/tap/coco`）→ 拖进「应用程序」→ 首次右键「打开」→ 按 ⌥Space。需 macOS 14+ Apple Silicon。
 
 ## AI 代理
 
