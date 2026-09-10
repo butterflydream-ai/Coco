@@ -1,6 +1,6 @@
 # Coco agent methods
 
-Generated from `coco capabilities --json` (71 methods). Bold params are required.
+Generated from `coco capabilities --json` (77 methods). Bold params are required.
 Tiers: `read` changes nothing, `act` touches the Mac, `admin` installs/removes plugins.
 Call any method as `coco <area> <method> --param value` or `coco call area.method …`; add `--json`.
 
@@ -15,6 +15,7 @@ Call any method as `coco <area> <method> --param value` or `coco call area.metho
 - [currency](#currency) (1)
 - [emoji](#emoji) (1)
 - [launchpad](#launchpad) (1)
+- [lid](#lid) (6)
 - [panel](#panel) (2)
 - [plugins](#plugins) (4)
 - [quicklinks](#quicklinks) (2)
@@ -113,6 +114,17 @@ Call any method as `coco <area> <method> --param value` or `coco call area.metho
 | Method | Tier | Params | Description |
 |---|---|---|---|
 | `launchpad.layout.get` | read | — | The saved Launchpad grid layout (apps and folders, in order). |
+
+## lid
+
+| Method | Tier | Params | Description |
+|---|---|---|---|
+| `lid.calibrate` | act | **`which`** (string) | Writes the current lid angle into the open or closed calibration reference (demo illustration only — does not affect the live fold-away trigger). |
+| `lid.demo` | act | `mode` (string) | Opens the manual Lid Angle Demo, either in a window or full screen. |
+| `lid.dismiss` | act | — | If the fold-away overlay is currently presenting, dismisses it immediately. A no-op (not an error) when already idle. |
+| `lid.get` | read | — | Returns every persisted Lid Fold setting. |
+| `lid.set` | act | `autoApplyEnabled` (boolean), `closedReferenceAngle` (number), `motionThresholdDegrees` (number), `openReferenceAngle` (number), `sensitivity` (string) | Updates one or more Lid Fold settings; any subset of the parameters may be given. Turning autoApplyEnabled on requires Screen Recording permission. |
+| `lid.status` | read | — | Live status of the lid-fold feature: sensor availability, current angle, whether the fold-away overlay is presenting, and the active settings. |
 
 ## panel
 

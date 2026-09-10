@@ -148,6 +148,17 @@ coco raycast list --json
 coco raycast run --command "extension/command"
 ```
 
+**Lid fold（盖子折叠）** — folds the current desktop away with the screen as
+the lid closes; comes back on lid-open or mouse touch. Enabling it needs
+Screen Recording permission — `lid.set` returns an error if it's missing.
+```bash
+coco lid status --json                       # angle, state (idle/presenting), sensor
+coco lid set --sensitivity touch --autoApplyEnabled true --json
+coco lid set --sensitivity half --json        # touch=2°, slight=6°, half=15°
+coco lid demo --mode window                   # open the manual demo window
+coco lid dismiss                              # force-exit the overlay if stuck
+```
+
 **Bridge primitives** (`bridge.*`) expose the plugin runtime's own helpers:
 `bridge.core.toast` and `bridge.progress.*` let you show the user progress
 in Coco's UI, `bridge.window.open` renders HTML in a floating window. Use
