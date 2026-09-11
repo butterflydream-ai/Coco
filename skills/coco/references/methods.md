@@ -122,7 +122,7 @@ Call any method as `coco <area> <method> --param value` or `coco call area.metho
 | `lid.calibrate` | act | — | Sets the current live hinge angle as the calibrated "fully open" reference angle. No-op if the lid sensor is unavailable. |
 | `lid.dismiss` | act | — | If the fold-away overlay is currently presenting or armed, dismisses it immediately (equivalent to turning it off). A no-op (not an error) when already idle. |
 | `lid.preview` | act | — | Runs the live fold effect on demand for about 8 seconds, without needing to physically move the lid. Requires macOS 15 and Screen Recording permission. |
-| `lid.set` | act | `enabled` (boolean) | Turns the MacBook Duo live desktop effect on or off. Turning it on requires macOS 15 and Screen Recording permission. |
+| `lid.set` | act | `enabled` (boolean), `settle-seconds` (number) | Turns the MacBook Duo live desktop effect on or off, and/or sets how many seconds the hinge must sit still before its current angle becomes the new "fully open" reference. At least one of enabled/settle-seconds must be given. |
 | `lid.status` | read | — | Live status of the MacBook Duo lid-fold feature: whether this Mac/OS supports it, sensor availability, the current and calibrated hinge angle, whether it's enabled, and the overlay's presentation state (idle/active/suspended). |
 
 ## panel

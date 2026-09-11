@@ -153,9 +153,14 @@ coco raycast run --command "extension/command"
 that bends the live desktop away as the lid closes, eased from 0° to a
 calibrated "fully open" angle. Requires macOS 15 and Screen Recording
 permission — `lid.set`/`lid.preview` return an error if either is missing.
+If the hinge sits still for `settleSeconds` (default 1s, whether mid-fold or
+past the calibrated angle), its current angle becomes the new "fully open"
+reference automatically — `lid.calibrate`/⌘⇧K is only needed for the first
+setup.
 ```bash
-coco lid status --json        # supported, angle, calibratedOpenAngle, enabled, state (idle/active/suspended)
+coco lid status --json        # supported, angle, calibratedOpenAngle, settleSeconds, enabled, state (idle/active/suspended)
 coco lid set --enabled true --json    # turn the live effect on
+coco lid set --settle-seconds 1.5 --json  # how long the hinge must sit still before re-basing (0.3-5.0)
 coco lid calibrate --json     # save the current live angle as the "fully open" reference
 coco lid preview              # play the live effect full-screen for ~8s, without moving the lid
 coco lid dismiss              # equivalent to --enabled false
