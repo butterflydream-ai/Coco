@@ -1,6 +1,6 @@
 # Coco agent methods
 
-Generated from `coco capabilities --json` (77 methods). Bold params are required.
+Generated from `coco capabilities --json` (76 methods). Bold params are required.
 Tiers: `read` changes nothing, `act` touches the Mac, `admin` installs/removes plugins.
 Call any method as `coco <area> <method> --param value` or `coco call area.method …`; add `--json`.
 
@@ -15,7 +15,7 @@ Call any method as `coco <area> <method> --param value` or `coco call area.metho
 - [currency](#currency) (1)
 - [emoji](#emoji) (1)
 - [launchpad](#launchpad) (1)
-- [lid](#lid) (6)
+- [lid](#lid) (5)
 - [panel](#panel) (2)
 - [plugins](#plugins) (4)
 - [quicklinks](#quicklinks) (2)
@@ -119,12 +119,11 @@ Call any method as `coco <area> <method> --param value` or `coco call area.metho
 
 | Method | Tier | Params | Description |
 |---|---|---|---|
-| `lid.calibrate` | act | **`which`** (string) | Writes the current lid angle into the open or closed calibration reference (demo illustration only — does not affect the live fold-away trigger). |
-| `lid.demo` | act | `mode` (string) | Opens the manual Lid Angle Demo, either in a window or full screen. |
-| `lid.dismiss` | act | — | If the fold-away overlay is currently presenting, dismisses it immediately. A no-op (not an error) when already idle. |
+| `lid.demo` | act | `mode` (string) | Runs the live fold effect on demand for a few seconds, either opening the Lid Fold settings pane (where BendMac's own preview lives) or presenting the real full-screen effect. |
+| `lid.dismiss` | act | — | If the fold-away overlay or a preview sweep is currently presenting, dismisses it immediately (equivalent to turning autoApplyEnabled off). A no-op (not an error) when already idle. |
 | `lid.get` | read | — | Returns every persisted Lid Fold setting. |
-| `lid.set` | act | `autoApplyEnabled` (boolean), `closedReferenceAngle` (number), `motionThresholdDegrees` (number), `openReferenceAngle` (number), `sensitivity` (string) | Updates one or more Lid Fold settings; any subset of the parameters may be given. Turning autoApplyEnabled on requires Screen Recording permission. |
-| `lid.status` | read | — | Live status of the lid-fold feature: sensor availability, current angle, whether the fold-away overlay is presenting, and the active settings. |
+| `lid.set` | act | `autoApplyEnabled` (boolean), `blur` (number), `clearAngle` (number), `followLid` (boolean), `manualAngle` (number), `perspective` (number), `shadow` (number), `sound` (boolean), `style` (integer) | Updates one or more Lid Fold settings; any subset of the parameters may be given. Turning autoApplyEnabled on requires Screen Recording permission. |
+| `lid.status` | read | — | Live status of the lid-fold feature: sensor availability, the angle currently driving the fold, whether the fold-away overlay is visible, and the active settings. |
 
 ## panel
 

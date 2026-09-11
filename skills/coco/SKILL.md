@@ -148,15 +148,16 @@ coco raycast list --json
 coco raycast run --command "extension/command"
 ```
 
-**Lid fold（盖子折叠）** — folds the current desktop away with the screen as
-the lid closes; comes back on lid-open or mouse touch. Enabling it needs
+**Lid fold（盖子折叠）** — a full port of BendMac (MIT): the live desktop
+continuously bends with the physical lid angle and clears again above
+`clearAngle`; there is no separate trigger threshold. Enabling it needs
 Screen Recording permission — `lid.set` returns an error if it's missing.
 ```bash
-coco lid status --json                       # angle, state (idle/presenting), sensor
-coco lid set --sensitivity touch --autoApplyEnabled true --json
-coco lid set --sensitivity half --json        # touch=2°, slight=6°, half=15°
-coco lid demo --mode window                   # open the manual demo window
-coco lid dismiss                              # force-exit the overlay if stuck
+coco lid status --json                        # angle, state (idle/presenting), sensor, settings
+coco lid set --autoApplyEnabled true --json   # turn the effect on
+coco lid set --clearAngle 100 --style 1 --blur 0.7 --json   # style: 0 Silk, 1 Shade, 2 Frost
+coco lid demo --mode fullscreen               # play the live effect for ~4s
+coco lid dismiss                              # equivalent to --autoApplyEnabled false
 ```
 
 **Bridge primitives** (`bridge.*`) expose the plugin runtime's own helpers:
