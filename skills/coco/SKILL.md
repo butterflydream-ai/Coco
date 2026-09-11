@@ -43,7 +43,14 @@ coco status                    # is Coco running? which version?
 coco help <area>               # exact params for one area, e.g. `coco help clipboard`
 ```
 
-If `coco` is not on PATH, use `/Applications/Coco.app/Contents/Helpers/coco`.
+Coco links `coco` onto `~/.coco/bin` (and appends the PATH export to
+`~/.zprofile`) itself on first launch, and re-heals both on every later
+launch if something else clobbers `~/.zprofile` — no manual `coco install`
+needed on a normal setup. Controlled by the `cliAutoLinkEnabled` setting
+(`coco settings get cliAutoLinkEnabled`); if it's off, or PATH still isn't
+picking it up (new shell not started since install), use
+`/Applications/Coco.app/Contents/Helpers/coco` directly, or run
+`coco cli install`.
 If `status` says Coco is not running, `open -a Coco`, wait two seconds, retry.
 Do not fall back to AppleScript for something Coco does — fix the connection.
 
@@ -158,14 +165,15 @@ past the calibrated angle), its current angle becomes the new "fully open"
 reference automatically — `lid.calibrate`/⌘⇧K is only needed for the first
 setup.
 ```bash
-coco lid status --json        # supported, angle, calibratedOpenAngle, settleSeconds, enabled, state (idle/active/suspended)
+coco lid status --json        # supported, angle, calibratedOpenAngle, settleSeconds, enabled, state (idle/active/suspended), capturing (actually pulling frames right now; false while suspended for sleep/sensor)
 coco lid set --enabled true --json    # turn the live effect on
 coco lid set --settle-seconds 1.5 --json  # how long the hinge must sit still before re-basing (0.3-5.0)
 coco lid calibrate --json     # save the current live angle as the "fully open" reference
 coco lid preview              # play the live effect full-screen for ~8s, without moving the lid
 coco lid preview --progress 0.5   # override the default 0.35 fold fraction (0 = open, 1 = fully folded)
-coco lid dismiss              # equivalent to --enabled false
+coco lid dismiss              # ends only the current fold/preview; does NOT turn the feature off
 ```
+Esc/mouse-move dismiss (and `lid.dismiss`) ends only the current fold; use `coco lid set --enabled false` to turn it off.
 
 **Bridge primitives** (`bridge.*`) expose the plugin runtime's own helpers:
 `bridge.core.toast` and `bridge.progress.*` let you show the user progress
