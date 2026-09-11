@@ -119,11 +119,11 @@ Call any method as `coco <area> <method> --param value` or `coco call area.metho
 
 | Method | Tier | Params | Description |
 |---|---|---|---|
-| `lid.demo` | act | `mode` (string) | Runs the live fold effect on demand for a few seconds, either opening the Lid Fold settings pane (where BendMac's own preview lives) or presenting the real full-screen effect. |
-| `lid.dismiss` | act | — | If the fold-away overlay or a preview sweep is currently presenting, dismisses it immediately (equivalent to turning autoApplyEnabled off). A no-op (not an error) when already idle. |
-| `lid.get` | read | — | Returns every persisted Lid Fold setting. |
-| `lid.set` | act | `autoApplyEnabled` (boolean), `blur` (number), `clearAngle` (number), `followLid` (boolean), `manualAngle` (number), `perspective` (number), `shadow` (number), `sound` (boolean), `style` (integer) | Updates one or more Lid Fold settings; any subset of the parameters may be given. Turning autoApplyEnabled on requires Screen Recording permission. |
-| `lid.status` | read | — | Live status of the lid-fold feature: sensor availability, the angle currently driving the fold, whether the fold-away overlay is visible, and the active settings. |
+| `lid.calibrate` | act | — | Sets the current live hinge angle as the calibrated "fully open" reference angle. No-op if the lid sensor is unavailable. |
+| `lid.dismiss` | act | — | If the fold-away overlay is currently presenting or armed, dismisses it immediately (equivalent to turning it off). A no-op (not an error) when already idle. |
+| `lid.preview` | act | — | Runs the live fold effect on demand for about 8 seconds, without needing to physically move the lid. Requires macOS 15 and Screen Recording permission. |
+| `lid.set` | act | `enabled` (boolean) | Turns the MacBook Duo live desktop effect on or off. Turning it on requires macOS 15 and Screen Recording permission. |
+| `lid.status` | read | — | Live status of the MacBook Duo lid-fold feature: whether this Mac/OS supports it, sensor availability, the current and calibrated hinge angle, whether it's enabled, and the overlay's presentation state (idle/active/suspended). |
 
 ## panel
 

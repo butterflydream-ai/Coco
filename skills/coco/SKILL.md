@@ -148,16 +148,17 @@ coco raycast list --json
 coco raycast run --command "extension/command"
 ```
 
-**Lid fold（盖子折叠）** — a full port of BendMac (MIT): the live desktop
-continuously bends with the physical lid angle and clears again above
-`clearAngle`; there is no separate trigger threshold. Enabling it needs
-Screen Recording permission — `lid.set` returns an error if it's missing.
+**MacBook Duo lid fold（盖子折叠）** — a full port of MacBook Duo (formerly
+`HingeGlass-Global`, author-authorized): a pinhole-perspective glass effect
+that bends the live desktop away as the lid closes, eased from 0° to a
+calibrated "fully open" angle. Requires macOS 15 and Screen Recording
+permission — `lid.set`/`lid.preview` return an error if either is missing.
 ```bash
-coco lid status --json                        # angle, state (idle/presenting), sensor, settings
-coco lid set --autoApplyEnabled true --json   # turn the effect on
-coco lid set --clearAngle 100 --style 1 --blur 0.7 --json   # style: 0 Silk, 1 Shade, 2 Frost
-coco lid demo --mode fullscreen               # play the live effect for ~4s
-coco lid dismiss                              # equivalent to --autoApplyEnabled false
+coco lid status --json        # supported, angle, calibratedOpenAngle, enabled, state (idle/active/suspended)
+coco lid set --enabled true --json    # turn the live effect on
+coco lid calibrate --json     # save the current live angle as the "fully open" reference
+coco lid preview              # play the live effect full-screen for ~8s, without moving the lid
+coco lid dismiss              # equivalent to --enabled false
 ```
 
 **Bridge primitives** (`bridge.*`) expose the plugin runtime's own helpers:
