@@ -163,6 +163,7 @@ coco lid set --enabled true --json    # turn the live effect on
 coco lid set --settle-seconds 1.5 --json  # how long the hinge must sit still before re-basing (0.3-5.0)
 coco lid calibrate --json     # save the current live angle as the "fully open" reference
 coco lid preview              # play the live effect full-screen for ~8s, without moving the lid
+coco lid preview --progress 0.5   # override the default 0.35 fold fraction (0 = open, 1 = fully folded)
 coco lid dismiss              # equivalent to --enabled false
 ```
 
