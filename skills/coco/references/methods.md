@@ -1,6 +1,6 @@
 # Coco agent methods
 
-Generated from `coco capabilities --json` (76 methods). Bold params are required.
+Generated from `coco capabilities --json` (77 methods). Bold params are required.
 Tiers: `read` changes nothing, `act` touches the Mac, `admin` installs/removes plugins.
 Call any method as `coco <area> <method> --param value` or `coco call area.method …`; add `--json`.
 
@@ -12,7 +12,7 @@ Call any method as `coco <area> <method> --param value` or `coco call area.metho
 - [captions](#captions) (5)
 - [clipboard](#clipboard) (7)
 - [coco](#coco) (4)
-- [currency](#currency) (1)
+- [currency](#currency) (2)
 - [emoji](#emoji) (1)
 - [launchpad](#launchpad) (1)
 - [lid](#lid) (5)
@@ -102,6 +102,7 @@ Call any method as `coco <area> <method> --param value` or `coco call area.metho
 | Method | Tier | Params | Description |
 |---|---|---|---|
 | `currency.convert` | read | **`amount`** (number), **`from`** (string), `to` (string) | Convert an amount between currencies using the cached exchange-rate table (refreshed if stale). |
+| `currency.list` | read | `query` (string) | List provider-supported currencies; search country names, ISO country codes, currency names/codes, or symbols. Change selected targets with settings.patch currencyTargets. |
 
 ## emoji
 

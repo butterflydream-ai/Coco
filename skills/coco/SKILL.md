@@ -134,6 +134,8 @@ coco captions transcripts read --id <id>
 coco calc eval --expression "1299 * 0.08"
 coco units convert --value 10 --from mi --to km
 coco currency convert --amount 20 --from USD --to EUR
+coco currency list --query USA
+coco settings patch --changes '{"currencyTargets":["USD","CNY","EUR"]}'
 coco emoji search --query "party" --json
 ```
 
