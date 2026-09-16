@@ -1,12 +1,13 @@
 # Coco agent methods
 
-Generated from `coco capabilities --json` (77 methods). Bold params are required.
-Tiers: `read` changes nothing, `act` touches the Mac, `admin` installs/removes plugins.
+Generated from `coco capabilities --json` (112 methods). Bold params are required.
+Tiers: `read` changes nothing, `act` touches the Mac, `admin` installs/removes plugins or requests privileged system actions.
 Call any method as `coco <area> <method> --param value` or `coco call area.method …`; add `--json`.
 
 ## Contents
 
-- [apps](#apps) (9)
+- [apps](#apps) (10)
+- [audio](#audio) (5)
 - [bridge](#bridge) (15)
 - [calc](#calc) (1)
 - [captions](#captions) (5)
@@ -14,9 +15,11 @@ Call any method as `coco <area> <method> --param value` or `coco call area.metho
 - [coco](#coco) (4)
 - [currency](#currency) (2)
 - [emoji](#emoji) (1)
+- [files](#files) (2)
 - [launchpad](#launchpad) (1)
 - [lid](#lid) (5)
-- [panel](#panel) (2)
+- [menu](#menu) (2)
+- [panel](#panel) (5)
 - [plugins](#plugins) (4)
 - [quicklinks](#quicklinks) (2)
 - [raycast](#raycast) (5)
@@ -24,6 +27,7 @@ Call any method as `coco <area> <method> --param value` or `coco call area.metho
 - [settings](#settings) (5)
 - [snippets](#snippets) (1)
 - [store](#store) (6)
+- [system](#system) (22)
 - [units](#units) (1)
 
 ## apps
@@ -36,9 +40,20 @@ Call any method as `coco <area> <method> --param value` or `coco call area.metho
 | `apps.list` | read | — | The full installed-app catalogue (as scanned by AppDiscovery), unranked. |
 | `apps.open` | act | `bundleID` (string), `path` (string) | Opens (launches or activates) an app by bundle identifier or path. |
 | `apps.quit` ⚠️ | act | `bundleID` (string), `path` (string) | Asks a running app to quit (equivalent to Cmd-Q). No-op if the app isn't running. |
+| `apps.repairAndOpen` ⚠️ | act | `bundleID` (string), `path` (string) | For one explicitly trusted app, removes its download quarantine marker and opens it. Does not repair damaged files or verify safety. |
 | `apps.reveal` | act | `bundleID` (string), `path` (string) | Reveals the app's bundle in Finder (does not launch/activate the app itself). |
 | `apps.running` | read | — | Currently-running apps, from AppDiscovery.runningApps(). |
 | `apps.search` | read | `limit` (number), **`query`** (string) | Ranked app search (pinyin/kana/initial-consonant + usage-frequency aware), the same pipeline behind the launcher's Apps tab. |
+
+## audio
+
+| Method | Tier | Params | Description |
+|---|---|---|---|
+| `audio.devices` | read | — | List current CoreAudio input/output devices, stable UIDs and default device IDs. |
+| `audio.microphoneMute` | read | — | Read hardware mute on the current default input. Unsupported devices return an error; volume is never changed. |
+| `audio.setInput` | act | **`uid`** (string) | Set the default audio input by exact UID from audio.devices and verify readback. |
+| `audio.setMicrophoneMute` | act | **`muted`** (boolean) | Set hardware mute on the default input and verify readback. Does not change input gain. Fails when device mute is unavailable/read-only. |
+| `audio.setOutput` | act | **`uid`** (string) | Set the default audio output by exact UID from audio.devices and verify readback. |
 
 ## bridge
 
@@ -110,6 +125,13 @@ Call any method as `coco <area> <method> --param value` or `coco call area.metho
 |---|---|---|---|
 | `emoji.search` | read | `limit` (number), **`query`** (string) | Search the emoji catalogue by name/keyword/alias. |
 
+## files
+
+| Method | Tier | Params | Description |
+|---|---|---|---|
+| `files.inspectDownloadMarker` | read | **`path`** (string) | Inspect com.apple.quarantine on one explicit app/dmg/pkg/zip. App contents are included without following symbolic links. Does not repair damage, verify safety or open the target. Failures may be partial; inspect the returned counts and failures. |
+| `files.removeDownloadMarker` ⚠️ | act | **`path`** (string) | Remove com.apple.quarantine on one explicit app/dmg/pkg/zip. App contents are included without following symbolic links. Does not repair damage, verify safety or open the target. Failures may be partial; inspect the returned counts and failures. |
+
 ## launchpad
 
 | Method | Tier | Params | Description |
@@ -126,11 +148,21 @@ Call any method as `coco <area> <method> --param value` or `coco call area.metho
 | `lid.set` | act | `enabled` (boolean), `settle-seconds` (number) | Turns the MacBook Duo live desktop effect on or off, and/or sets how many seconds the hinge must sit still before its current angle becomes the new "fully open" reference. At least one of enabled/settle-seconds must be given. |
 | `lid.status` | read | — | Live status of the MacBook Duo lid-fold feature: whether this Mac/OS supports it, sensor availability, the current and calibrated hinge angle, whether it's enabled, the overlay's presentation state (idle/active/suspended), and whether a desktop-capture stream is open or still stopping (capturing). Capture starts only for a fold or preview and stops when it ends or the Mac suspends; idle hinge monitoring does not capture the desktop. |
 
+## menu
+
+| Method | Tier | Params | Description |
+|---|---|---|---|
+| `menu.list` | read | **`pid`** (integer) | Read an application's menu paths and enabled state. Bounded AX traversal with a 3-second budget. IDs expire on the next menu.list call. Requires Accessibility permission. |
+| `menu.perform` ⚠️ | act | **`id`** (string), **`pid`** (integer) | Execute one menu ID from the latest menu.list for the exact same PID. Rechecks menu path and enabled state before AXPress. The selected menu action may be destructive. |
+
 ## panel
 
 | Method | Tier | Params | Description |
 |---|---|---|---|
+| `panel.animate` | act | **`event`** (string) | Preview a logo interaction on the visible panel. Does not execute the underlying item action. |
+| `panel.animationStatus` | read | — | Read the launcher's logo animation state, expression and whether playback is active. |
 | `panel.hide` | act | — | Hides the launcher panel if it is visible. |
+| `panel.navigateClipboard` | act | **`key`** (string) | Navigate the visible clipboard list and filters. Space/Return toggle focused Favorites; never pastes an item. Returns focus and filter state. |
 | `panel.show` | act | `mode` (string), `query` (string) | Shows the launcher panel, optionally on a specific tab and/or with a query already typed in. |
 
 ## plugins
@@ -191,6 +223,33 @@ Call any method as `coco <area> <method> --param value` or `coco call area.metho
 | `store.search` | read | **`query`** (string) | Search the Coco Store index by name/description/author. |
 | `store.uninstall` ⚠️ | admin | **`id`** (string) | Uninstalls a plugin by id. |
 | `store.update` | admin | — | Updates one plugin (by id) or every installed plugin with an available update, to the latest Store index version. |
+
+## system
+
+| Method | Tier | Params | Description |
+|---|---|---|---|
+| `system.battery` | read | — | Read internal battery percentage, charging, AC power, cycle count, charger watts, and estimated minutes to empty/full. Unsupported or unavailable measurements are null. |
+| `system.batterySettings` | act | — | Battery Settings. Open macOS battery and energy settings. Success means the request was submitted to macOS. |
+| `system.copyFinderPath` | act | — | Copy current Finder selection paths as newline-separated text; errors if selection is empty. |
+| `system.copyLatestDownload` | act | — | Copy Latest Download. Copy the most recently modified completed download. Success means the request was submitted to macOS. |
+| `system.ejectVolumes` | act | — | Normally eject each currently ejectable local volume, never forcibly. Returns per-volume success or error; check every result. |
+| `system.ejectableVolumes` | read | — | List mounted local volumes marked ejectable by macOS. |
+| `system.emptyTrash` ⚠️ | act | — | Empty Trash. Permanently delete items in the Trash. Success means the request was submitted to macOS. |
+| `system.finderSelection` | read | — | Read the selected Finder file and folder paths. Requires Finder automation access. |
+| `system.flushDNS` | admin | — | Flush DNS Cache. Clear DNS caches with administrator authorization. Success means the request was submitted to macOS. |
+| `system.forceRestart` ⚠️ | admin | — | Force Restart Mac. Skip app save prompts; unsaved work may be lost. Requires administrator access.. Success means the request was submitted to macOS. |
+| `system.forceShutdown` ⚠️ | admin | — | Force Shut Down Mac. Skip app save prompts; unsaved work may be lost. Requires administrator access.. Success means the request was submitted to macOS. |
+| `system.hiddenFiles` | read | — | Read Finder's show-hidden-files preference. |
+| `system.latestDownload` | read | — | Find the most recently modified completed regular file or app package directly in Downloads; excludes hidden files, links and common temporary download extensions. |
+| `system.lockScreen` | act | — | Lock Screen. Lock your Mac session. Success means the request was submitted to macOS. |
+| `system.logout` ⚠️ | act | — | Log Out. Apps can ask you to save unfinished work. Success means the request was submitted to macOS. |
+| `system.openLatestDownload` | act | — | Open Latest Download. Open the most recently modified completed download. Success means the request was submitted to macOS. |
+| `system.restart` ⚠️ | act | — | Restart Mac. Apps can ask you to save unfinished work. Success means the request was submitted to macOS. |
+| `system.restartFinder` | act | — | Restart Finder. Relaunch Finder without force quitting. Success means the request was submitted to macOS. |
+| `system.shutdown` ⚠️ | act | — | Shut Down Mac. Apps can ask you to save unfinished work. Success means the request was submitted to macOS. |
+| `system.sleep` | act | — | Sleep Mac. Put your Mac to sleep. Success means the request was submitted to macOS. |
+| `system.terminalHere` | act | **`path`** (string) | Open the configured terminal at this directory or the parent directory of this file. Terminal/iTerm receive a safely quoted cd command; other configured terminals are rejected with an actionable error. |
+| `system.toggleHiddenFiles` | act | — | Toggle Hidden Files. Show or hide hidden files and restart Finder. Success means the request was submitted to macOS. |
 
 ## units
 

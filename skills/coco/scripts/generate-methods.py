@@ -52,7 +52,7 @@ def main() -> None:
         "# Coco agent methods",
         "",
         f"Generated from `coco capabilities --json` ({len(ms)} methods). Bold params are required.",
-        "Tiers: `read` changes nothing, `act` touches the Mac, `admin` installs/removes plugins.",
+        "Tiers: `read` changes nothing, `act` touches the Mac, `admin` installs/removes plugins or requests privileged system actions.",
         "Call any method as `coco <area> <method> --param value` or `coco call area.method …`; add `--json`.",
         "",
         "## Contents",

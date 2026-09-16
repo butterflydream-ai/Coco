@@ -54,10 +54,83 @@ picking it up (new shell not started since install), use
 If `status` says Coco is not running, `open -a Coco`, wait two seconds, retry.
 Do not fall back to AppleScript for something Coco does — fix the connection.
 
-The full catalogue (71 methods, params, tiers) is in
+The full catalogue (methods, params, tiers) is in
 [references/methods.md](references/methods.md). Read it when you need a
 method outside the recipes below; do not guess parameter names, they are
 case-sensitive (`bundleID`, `outputPath`, `pluginID`).
+
+## System commands and battery
+
+`coco call system.battery --json` reads internal battery percentage, charging,
+and power source, cycle count, adapter wattage, and estimated minutes to empty/full.
+Unavailable measurements are null (including Macs without a battery). Time-to-empty
+is only exposed while discharging, and time-to-full only while charging.
+`system.batterySettings` opens the macOS battery settings page.
+
+`system.restart`, `system.shutdown`, `system.sleep`, and `system.logout` submit
+native macOS session actions. Apps can still request saving or cancel shutdown.
+`system.forceRestart` and `system.forceShutdown` skip app save prompts and can
+lose unsaved work; macOS requires administrator authentication. Only invoke
+these disruptive actions when the user requests the action itself, never merely
+to test installation or discover capabilities. These are one-shot commands with
+no new persistent settings. See `coco help system` for the installed catalogue.
+
+## Finder, downloads, and maintenance
+
+The launcher exposes 23 system command entries including the power commands above,
+file actions, audio/menu pickers, and Force Quit an App. Agent calls use the concrete
+methods below; picker entries map to explicit-target APIs rather than opening a
+modal selection dialog for an agent.
+
+| Task | Methods | Notes |
+|---|---|---|
+| Finder paths | `system.finderSelection`, `system.copyFinderPath` | Read the current Finder selection; copy paths as newline-separated text. Empty selection fails. |
+| Terminal at folder | `system.terminalHere --path '/absolute/path'` | File paths use their parent. Uses the configured Terminal/iTerm with safely passed paths. Other configured terminals return an unsupported error; no false claim that the working directory changed. |
+| Latest download | `system.latestDownload`, `system.copyLatestDownload`, `system.openLatestDownload` | Direct Downloads children ranked by modification time; ignores hidden files, links, and common incomplete-download extensions. Copy writes the file object to the clipboard. Open launches its default handler. |
+| Trash | `system.emptyTrash` | Permanently empties the Trash through Finder. Launcher UI confirms first; agent calls do not add a Coco modal. Never invoke to test capabilities. |
+| Finder recovery | `system.restartFinder` | Requests normal termination and relaunches; does not force kill. |
+| DNS | `system.flushDNS` | Fixed cache-flush commands; macOS administrator authorization may appear. |
+| Volumes | `system.ejectableVolumes`, `system.ejectVolumes` | Lists/ejects local ejectable volumes including disk images. Never forcibly unmounts. Check each returned path's success/error; partial failure is possible. |
+| Hidden files | `system.hiddenFiles`, `system.toggleHiddenFiles` | Reads/toggles Finder's hidden-file preference; toggling restarts Finder. |
+| Lock | `system.lockScreen` | Locks the current Mac session. |
+| Unresponsive apps | `apps.running`, `apps.forceQuit --bundleID …` or `--path …` | The launcher has a running-app chooser; execution shares the existing app-action service. Unsaved work may be lost. |
+
+## Audio devices and application menus
+
+Read `coco call audio.devices --json`, then pass the exact returned `uid` to
+`audio.setInput` or `audio.setOutput`. Device names are display labels, not IDs.
+Read `audio.microphoneMute`; set `audio.setMicrophoneMute --muted true` (or false).
+These operate on supported hardware mute and verify readback. Unsupported/read-only
+microphones return an error; Coco never substitutes changing input volume to 0/100.
+
+Use `menu.list --pid <running-app-pid>` to read menu paths, enabled flags, and IDs.
+Execute with `menu.perform --pid <same-pid> --id <returned-id>`. IDs expire on the next
+list call; execution rechecks the menu identity and enabled state. Accessibility
+permission is required, and enumeration is bounded. A menu action can be destructive,
+so select the user's intended action. The launcher searches the application that was
+active before Coco opened; agent APIs require an explicit PID.
+
+## Download quarantine markers
+
+Use `coco call files.inspectDownloadMarker --path '/absolute/path/Example.app' --json`
+to inspect a selected download, and `files.removeDownloadMarker` with the same
+explicit `path` to remove only its `com.apple.quarantine` attribute when requested
+for a source the user trusts. Supported targets are one app, dmg, pkg, or zip;
+ordinary folders and linked targets are rejected. App contents are included,
+without following symbolic links; hard links and inaccessible items are reported
+as failures. Other extended attributes are preserved.
+
+For a trusted app that should open immediately afterwards, use
+`apps.repairAndOpen --path '/absolute/path/Example.app'`. The app list offers the
+same “Repair & Open” action only when the app itself carries the marker.
+
+Read `success`, `marked`, `removed`, `skippedLinks`, and `failures`: removal can
+partially succeed. This does not repair genuinely damaged files, verify signatures
+or safety, disable Gatekeeper globally, or open/install the target. The launcher
+command “Remove Download Marker” uses Finder selection or a file picker, then a
+native confirmation showing the target. The agent methods require an explicit
+path and run without an additional app confirmation. These are one-shot actions
+with no new persistent settings or settings keys.
 
 ## Calling a method
 
@@ -84,9 +157,31 @@ See [references/errors.md](references/errors.md) for the code table.
 `coco capabilities --json` tags each method `read`, `act`, or `admin`.
 `read` never changes anything. `act` touches the user's Mac (opens an app,
 writes the clipboard, types a paste, changes a setting). `admin` installs or
-removes plugins. All three run without prompting; the tags exist so you can
+removes plugins or requests privileged system actions. Coco adds no confirmation
+dialog; macOS may still require administrator authentication. The tags let you
 tell the user what you are about to do before doing something irreversible
 such as `apps.forceQuit`, `clipboard.delete`, or `store.uninstall`.
+
+## Launcher logo feedback
+
+`coco call panel.animationStatus --json` reads the visible logo's animation,
+expression and playback activity. `coco call panel.animate --event typing` previews
+an interaction on an already visible panel; use `panel.show` first. Events include
+`typing`, `clear`, `navigate`, `switch`, `preview`, `menu`, `cancel`, `execute`,
+`success`, `favorite`, `delete`, `failure`, `loading`, `loaded`, `empty`, and `results`.
+These previews only affect the logo; they never execute an item action. There are
+no new adjustable settings. `panel.hide` stops logo playback.
+
+## Clipboard filter navigation
+
+Show the clipboard with `coco call panel.show --mode clipboard`, then use
+`coco call panel.navigateClipboard --key down --json`. The first Down focuses
+All; Left focuses Favorites and stops there. Right/Left apply categories
+immediately and stop at either end. Space/Return toggle focused Favorites. Down returns to
+the first list item, subsequent Down moves through items, and Up from the first
+item focuses Favorites; another Up stays there. Responses report `filterIndex` (-1 Favorites, 0 All,
+null list), `selectedRow`, `favoritesOnly`, and `filterKey`. This method never
+pastes clipboard contents and adds no adjustable settings.
 
 ## Recipes
 
