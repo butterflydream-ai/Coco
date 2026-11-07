@@ -287,3 +287,17 @@ file tools, which are faster and have no deny-list surprises.
    was pasted, the new setting value), not just "done".
 3. When a method is denied or a permission is missing (`-32005`), say exactly
    which one and what the user can change; do not silently switch tools.
+
+### Remove an app and related data
+
+Use `coco call apps.uninstallPreview --path '/Applications/Example.app' --json`
+to obtain a 15-minute `planID`, candidate `items` and `warnings`. Review the exact
+paths, including app data/settings. Name-only suggestions and system-wide files
+are unchecked by default. Shared containers, services/drivers, Keychain,
+personal documents and package-manager registrations are not removed.
+Quit the target app after saving work. Then call
+`coco call apps.uninstall --planID '<returned-id>' --paths '["/Applications/Example.app","/exact/reviewed/cache/path"]' --json`.
+The app path is required; only candidates from that plan are accepted. This
+moves files to Trash without emptying it, returns `trashed` and `failures`, and
+never shows a confirmation dialog. Do not report success if `ok` is false.
+No persistent uninstall settings are introduced.

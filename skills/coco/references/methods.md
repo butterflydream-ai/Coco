@@ -1,12 +1,12 @@
 # Coco agent methods
 
-Generated from `coco capabilities --json` (112 methods). Bold params are required.
+Generated from `coco capabilities --json` (114 methods). Bold params are required.
 Tiers: `read` changes nothing, `act` touches the Mac, `admin` installs/removes plugins or requests privileged system actions.
 Call any method as `coco <area> <method> --param value` or `coco call area.method …`; add `--json`.
 
 ## Contents
 
-- [apps](#apps) (10)
+- [apps](#apps) (12)
 - [audio](#audio) (5)
 - [bridge](#bridge) (15)
 - [calc](#calc) (1)
@@ -44,6 +44,8 @@ Call any method as `coco <area> <method> --param value` or `coco call area.metho
 | `apps.reveal` | act | `bundleID` (string), `path` (string) | Reveals the app's bundle in Finder (does not launch/activate the app itself). |
 | `apps.running` | read | — | Currently-running apps, from AppDiscovery.runningApps(). |
 | `apps.search` | read | `limit` (number), **`query`** (string) | Ranked app search (pinyin/kana/initial-consonant + usage-frequency aware), the same pipeline behind the launcher's Apps tab. |
+| `apps.uninstall` ⚠️ | act | **`paths`** (array), **`planID`** (string) | Moves explicitly selected paths from an uninstallPreview plan to Trash. Requires the app path; refuses running/protected apps and changed files. No dialog, no permanent deletion. Reports per-file failures. |
+| `apps.uninstallPreview` | read | `bundleID` (string), `path` (string) | Scans app and related data without deleting. Returns a 15-minute planID, exact candidate paths, defaults and exclusions. Review before apps.uninstall. |
 
 ## audio
 
