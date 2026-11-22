@@ -103,6 +103,7 @@ Call any method as `coco <area> <method> --param value` or `coco call area.metho
 | `clipboard.favorite` | act | **`favorite`** (boolean), **`id`** (string) | Sets whether a clipboard.list entry is favorited. |
 | `clipboard.get` | read | **`id`** (string) | One clipboard entry by id. |
 | `clipboard.list` | read | `favoritesOnly` (boolean), `limit` (number), `offset` (number) | Clipboard history entries, newest first, with concealed (password-manager sourced) entries filtered out. |
+| `clipboard.openSyncSettings` | act | — | Opens Clipboard settings for secure passphrase entry and reports whether encrypted sync is active. |
 | `clipboard.paste` | act | `id` (string), `text` (string) | Pastes into the frontmost app: writes text (or a clipboard.list entry by id) to the clipboard, then sends Cmd-V. Requires Accessibility permission. |
 | `clipboard.search` | read | `limit` (number), **`query`** (string) | Search clipboard history using the same matcher as the launcher's Clipboard tab. |
 

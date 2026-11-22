@@ -203,6 +203,11 @@ coco clipboard get --id <id>
 Clipboard clips are encrypted on disk. For a stored image, use its entry ID with
 `clipboard.paste` or pass its returned `imagePath` back to `clipboard.copy`.
 
+History and favorites stay on this Mac until the user enables encrypted sync.
+Use `coco call clipboard.openSyncSettings --json` to open Clipboard settings
+and report the active state. The user enters the same sync passphrase in the
+secure fields on each Mac.
+
 With explicit user approval, run `coco call clipboard.clearICloudHistory --confirm true --json`
 to remove iCloud clipboard history and accessible old versions. Current favorites are preserved.
 
