@@ -200,6 +200,13 @@ coco clipboard search --query "invoice" --json
 coco clipboard get --id <id>
 ```
 
+Clipboard clips are encrypted on disk. For a stored image, use its entry ID with
+`clipboard.paste` or pass its returned `imagePath` back to `clipboard.copy`.
+
+With explicit user approval, run `coco call clipboard.clearICloudHistory --confirm true --json`
+to remove iCloud clipboard history and accessible old versions. Current favorites are preserved.
+
+
 **Put something on the clipboard, or paste it into the frontmost app**
 ```bash
 coco clipboard copy --text "hello"
@@ -239,6 +246,7 @@ coco emoji search --query "party" --json
 coco settings schema --json                 # every key with type and writable flag
 coco settings get --key clipboardHistoryLimit
 coco settings set --key clipboardHistoryLimit --value 300 --json
+coco settings set --key filterSensitiveClipboard --value true --json
 coco settings patch --changes '{"showStatusItem": false, "hideFromDock": true}'
 ```
 Every key hot-reloads; the result reports `appliesOn: live`. The one key
